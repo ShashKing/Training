@@ -14,6 +14,7 @@ cp:- cp command is used for copy the file from one directory to another director
 destination.for example:- cp abc.txt  /home/beryl_system/Desktop/New_Folder
 
 rv :- this command is used for moving the file from one directory from another directory. we can also use the rv command to change the name of the file .
+eg:- rv  sorce destination or rv oldfilename newfilename
 
 echo:- This command is used for writing data in a file .eg:- echo Text to written in the file>>file_name.file_type
 
