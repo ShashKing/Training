@@ -27,3 +27,6 @@ psql
 // To create the Database in Postgresql 
 
 CREATE DATABASE database_name;
+
+//to select the database use below command with desire database name (here db name)
+\c dbname;
