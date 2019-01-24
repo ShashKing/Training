@@ -29,4 +29,37 @@ psql
 CREATE DATABASE database_name;
 
 //to select the database use below command with desire database name (here db name)
+
 \c dbname;
+
+//To create table in database 
+ 
+ CREATE TABLE table_name(column_name1 data_type(size of data_type) constraints, column_name2 data_type(size of data_type) constraints ,... and so on)
+
+//To view the table in Database
+
+\d table_name
+
+//To delete empty DATABASE
+
+DROP database_name;
+
+ //To change the name or rename the table 
+ 
+ ALTER TABLE tablename RENAME TO new_table_name;
+ 
+ //To add new column in table 
+ 
+ ALTER TABLE table_name ADD COLUMN column_name data_type(size of data_type) constraints ;
+ 
+ //To remove the column in Table 
+ 
+ ALTER TABLE table_name DROP column_name;
+ 
+ //To add Foreign Key in the given Table 
+ 
+ ALTER TABLE table_name ADD FOREIGN KEY (column_name ) REFERENCES other_table_name (column_name);
+ 
+ // To Drop the foreign key from the table
+ 
+ ALTER TABLE table_name DROP FOREIGN KEY column_name;
