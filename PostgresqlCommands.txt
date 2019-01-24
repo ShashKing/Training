@@ -1,0 +1,6 @@
+sudo apt-get install postgresql postgresql-contrib 
+ls /etc/postgresql/9.5/main/
+servie postgresql
+servie postgresql status/start/stop/reload/force-reload
+sudo su postgres
+psql
