@@ -1,6 +1,29 @@
-sudo apt-get install postgresql postgresql-contrib 
+IN TERMINAL 
+
+// To install the POSTGRESQL in UBUNTU
+
+ sudo apt-get install postgresql postgresql-contrib 
+ 
+ //TO check the installed directory of POSTGRESQL
+ 
 ls /etc/postgresql/9.5/main/
+
+//To check the services of postgresql 
+
 servie postgresql
+
+//These are the services of Postgresql 
+
 servie postgresql status/start/stop/reload/force-reload
+
+//to run the Postgresql
+
 sudo su postgres
+
+//To open the SQL command line
+
 psql
+
+// To create the Database in Postgresql 
+
+CREATE DATABASE database_name;
