@@ -63,3 +63,7 @@ DROP database_name;
  // To Drop the foreign key from the table
  
  ALTER TABLE table_name DROP FOREIGN KEY column_name;
+ 
+ //To Add Primary key in our Databse
+ 
+ Alter Databse
