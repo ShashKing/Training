@@ -28,7 +28,7 @@ sudo apt-get install
 sudo apt-get update
 both of the above commands are used for installation and updation of the application on the Linux system .
 
-sudo shutdown -p now :- This command is used for shut down the linux system .
+sudo shutdown now :- This command is used for shut down the linux system .
 
 df — Use the df command to see the available disk space in each of the partitions in your system.
 
@@ -40,9 +40,9 @@ chmod :- command is used for change the access permission of the file .
 
 chmod 400 file_name :- read by owner only
 
-chmod 400 file_name :- read by group only
+chmod 040 file_name :- read by group only
 
-chmod 400 file_name :- read by anyone only
+chmod 004 file_name :- read by anyone only
 
 chmod 200 file_name :- write by owner only
 
