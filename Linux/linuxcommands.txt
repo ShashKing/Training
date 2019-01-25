@@ -71,7 +71,7 @@ to save the data and close the vm editor.
 
 //Nano Editor 
 
-nano:- o open nano editor type nano on terminal.
+nano:- To open nano editor type nano on terminal.
 
 nano file_name :-to open the existing file we use this command.
 
