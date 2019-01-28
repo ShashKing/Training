@@ -66,4 +66,16 @@ DROP database_name;
  
  //To Add Primary key in our Databse
  
- Alter Databse
+UPDATE table_name SET column_name1=value1,column_name2=value2,... WHERE condition;
+
+//To upadate the value in a table
+
+DELETE from table_name WHERE condition;
+
+//To delete the entire row in a table
+
+SELECT column_name from table_name WHERE column_name NOT IN(value1,value2);
+
+//To select the table name using NOT IN
+
+SELECT column_name from table_name WHERE column_name BETWEEN value1 and value2;
