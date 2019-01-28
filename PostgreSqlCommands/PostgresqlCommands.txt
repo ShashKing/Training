@@ -111,3 +111,31 @@ SELECT table1.columns, table2.columns  FROM table1  FULL OUTER JOIN table2  ON t
 SELECT coloums   FROM table1   CROSS JOIN table2\
 
 //CROSS JOIN
+
+SELECT column1, column2, ...FROM table_name WHERE columnN LIKE pattern;
+
+//Like clause
+
+SELECT column_name AS alias_name FROM table_name;
+
+SELECT column_name(s) FROM table_name AS alias_name;
+
+//Alias to change the name of the or coloum _name or table
+
+SELECT AGE(timestamp '2016-01-26', timestamp '1947-08-15');
+
+SELECT AGE(timestamp '1947-08-15');
+
+// It is used to produce the current age.
+
+SELECT CURRENT_TIME;
+
+SELECT CURRENT_DATE;
+
+SELECT CURRENT_TIMESTAMP;
+
+SELECT LOCALTIMESTAMP;
+
+SELECT name,salary,designation,dept from department INNER JOIN company ON department.id=company.dept_id WHERE department.dept='Technical' ORDER BY salary DESC;
+
+SELECT name,salary,designation,dept from department INNER JOIN company ON department.id=company.dept_id WHERE department.dept='Technical' ORDER BY salary DESC LIMIT 1 OFFSET 1;
