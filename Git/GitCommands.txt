@@ -1,6 +1,8 @@
 git config --global user.name"YourName"
 git config --global user.email"YourEmailId"
-git config --global.color.ui.true
+
+//git config --global.color.ui.true  //optional command
+
 git config --list
 
 // Configuration part Complete
@@ -31,7 +33,7 @@ git remote add origin "path of the repository in github" paste the path here .
 
 //here we add the poject in github
 
-git remote -v  :- The "-v" option will list all remote repositories you've connected to. This is what we've got:
+git remote -v  :- The "-v" option will list all remote repositories you've connected to. This is what we've got: //optional command
 
 git push -u origin master 
 
