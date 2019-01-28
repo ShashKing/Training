@@ -6,6 +6,28 @@ pwd:- This command is use for knowing absolute path of the current directory.
 
 ls:- This command is used for listing all directory and files in the current directory.
 
+ls -a :- Shows hidden files
+
+ls -la :- show in details with hidden file.
+
+ls -R :- show sub directory
+
+ls- l :- show in details
+
+ls -r :- list in reverse order
+
+ls -S :- sort by size
+ 
+ls -t :- sort by time
+
+ls -x :- sort by extension name.
+
+ ls .. :- list parent directory.
+ 
+ ls / :- list root directory
+ 
+ ls ~ :- list home directory
+ 
 rmdir and rm:- rmdir command is used for delete empty directory but for deleting directory having files we use rm command in our linux command prompt.
 
 touch :- touch command is used for creating a file in the current directory.eg, touch myfile.text
