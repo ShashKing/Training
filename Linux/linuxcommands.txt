@@ -1,0 +1,79 @@
+cd :- Command use for change directory . Normal cd use for root directory.classpath should be given if you want to go to exact location of the directory.
+
+mkdir:- Command use for create Directory .eg, mkdir dir_name
+
+pwd:- This command is use for knowing absolute path of the current directory.
+
+ls:- This command is used for listing all directory and files in the current directory.
+
+rmdir and rm:- rmdir command is used for delete empty directory but for deleting directory having files we use rm command in our linux command prompt.
+
+touch :- touch command is used for creating a file in the current directory.eg, touch myfile.text
+
+cp:- cp command is used for copy the file from one directory to another directory .for copying the file we use full path in source and 
+destination.for example:- cp abc.txt  /home/beryl_system/Desktop/New_Folder
+
+cp -r :- To copy the file directory (Source) to destination.
+
+rv :- this command is used for moving the file from one directory from another directory. we can also use the rv command to change the name of the file .
+eg:- rv  sorce destination or rv oldfilename newfilename
+
+echo:- This command is used for writing data in a file .eg:- echo Text to written in the file>>file_name.file_type
+
+cat:- This command is used for read the file in linux command .
+
+sudo:- sudo means super user do . by using sudo before any command we give authority to that command as an admin
+
+sudo apt-get install 
+sudo apt-get update
+both of the above commands are used for installation and updation of the application on the Linux system .
+
+sudo shutdown -p now :- This command is used for shut down the linux system .
+
+df — Use the df command to see the available disk space in each of the partitions in your system.
+
+zip, unzip — Use zip to compress files into a zip archive, and unzip to extract files from a zip archive.
+
+ls -l:- this commands shows the list of the file with their acsess mode.
+
+chmod :- command is used for change the access permission of the file .
+
+chmod 400 file_name :- read by owner only
+
+chmod 400 file_name :- read by group only
+
+chmod 400 file_name :- read by anyone only
+
+chmod 200 file_name :- write by owner only
+
+chmod 020 file_name :- write by group only
+
+chmod 002 file_name :- write by anyone only
+
+chmod 100 file_name :- execute  by owner only
+
+chmod 010 file_name :- execute  by group only
+
+chmod 001 file_name :- execute  by anyone only
+
+chmod 444 file_name :- Read by all (owner, group,any)
+
+chmod 777 file_name :- Read, Write and Execute by everyone.
+
+ps :- command to show the process ID
+
+//Vim editor 
+
+vim file_name :- this command helps top open the vi editor on terminal
+
+press I on keyboard to write on file and press escbutton on keyboard to leave the file .press shiff +Z and Z (z two times )
+to save the data and close the vm editor.
+
+//Nano Editor 
+
+nano:- o open nano editor type nano on terminal.
+
+nano file_name :-to open the existing file we use this command.
+
+
+
