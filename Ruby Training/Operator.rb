@@ -24,7 +24,7 @@ puts d
 d-=b
 puts d
 d/=b
-puts d
+puts "Answer#{d}"
 d%=b
 puts d
 
@@ -38,3 +38,14 @@ puts (~ba)
 puts (~bb)
 puts ba<<2
 puts 2>>bb
+#Ruby logical opertors
+puts (a and b)
+puts (a or b)
+puts (a&&b)
+puts (a||b)
+puts !(a&&b)
+puts not(a&&b)
+=begin
+This is a multiline comment and con spwan as many lines as you
+like. But =begin and =end should come in the first line only. 
+=end
