@@ -1,4 +1,4 @@
-arr=Array[99,66,25,5,3,4,6,1,3,2,45,85] 
+arr=Array[56,85,45,25,36,75,95,15,35,65] 
 puts "Unsorted Array=#{arr}"
 n=arr.length
 for i in 0...n-1
