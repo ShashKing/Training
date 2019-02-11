@@ -6,7 +6,7 @@ puts " "
 print x.capitalize
 puts " "
 puts "#{x} is a language"
-puts "#{x}".concat("And Java")
+puts "#{x}".concat(" And Java")
 puts "11"*3
 
 puts "1"+"1"+"1"

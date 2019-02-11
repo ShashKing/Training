@@ -4,4 +4,10 @@ for i in 1..5
 	a=a+"a"
 
 end
-print i.length
+
+
+k=4
+for j in 0...5
+	puts "a"*k
+	k-=1
+end
