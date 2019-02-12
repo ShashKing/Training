@@ -139,3 +139,14 @@ SELECT LOCALTIMESTAMP;
 SELECT name,salary,designation,dept from department INNER JOIN company ON department.id=company.dept_id WHERE department.dept='Technical' ORDER BY salary DESC;
 
 SELECT name,salary,designation,dept from department INNER JOIN company ON department.id=company.dept_id WHERE department.dept='Technical' ORDER BY salary DESC LIMIT 1 OFFSET 1;
+
+//Query for join and maximum value
+
+CREATE TABLE ArrayTest(id int NOT NULL PRIMARY KEY,name varchar(50),saving_per_quarter integer[],scheme text[][]);
+
+INSERT INTO ArrayTest values(101,'Shashank','{20000,14600,23500,13250}','{{"FD","MF"},{"FD","Property"}}'); 
+
+ SELECT * from ArrayTest
+ 
+ //Commands to create an array in table and to insert data in array and to retrieve it. It violates the Normalization(first form which states value should be atomic in column)
+SELECT * from ArrayTest

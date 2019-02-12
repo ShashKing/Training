@@ -13,7 +13,7 @@ git init
 
 git status 
 
-//to check the status of the file in repository
+//to check the status of the file in repositoryxeew
 
 git add fileName.txt :- this command is used to add file in the repository. for adding two or more file we add file names 
 git add . 
@@ -28,6 +28,10 @@ git commit -m "Files are added into git"
 // committing to repository  
 
 create an account in github using same email id and user name and create the repository and copy the path 
+
+//if url already exist change url 
+
+git remote set -url origin path
 
 git remote add origin "path of the repository in github" paste the path here .
 
