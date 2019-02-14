@@ -1,7 +1,7 @@
-H = Hash["a" => 100, "b" => 200]
+H = Hash[a:100, b:200]
 
-puts "#{H['a']}"
-puts "#{H['b']}"
+puts "Value of a is #{H[:a]}"
+puts "#Value of b is{H[:b]}"
 
 
 
