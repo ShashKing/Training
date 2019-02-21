@@ -1,0 +1,42 @@
+body
+{
+	background-color:lightblue; 
+}
+h3
+{
+	color:red;
+	font-size;50px;
+}
+p
+{
+	color:lightgreen;
+	font-size:45px;
+}
+pre
+{
+	color:violet;
+}
+a:link
+{
+	color: green;
+	background-color: transparent;
+	text-decoration:none;
+}
+a:hover
+{
+	color:blue;
+	background-color:transparent;
+	text-decoration:underline;
+}
+a:visited
+{
+	color:rebeccapurple
+	background-color:transparent;
+	text-decoration:none;
+}
+a:active
+{
+	color:yellow;
+	background-color:transparent;
+	text-decoration:underline
+}

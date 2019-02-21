@@ -1,0 +1,50 @@
+a)
+SELECT aircraft.aname  FROM certified INNER JOIN aircraft ON certified.aid=aircraft.aid INNER JOIN employee 
+ON certified.eid=employee.eid WHERE employee.salary>65000 ORDER BY salary;
+
+b)
+SELECT c.eid,MAX(a.crusing_range) FROM certified c,aircraft a  WHERE c.aid=a.aid GROUP BY c.eid HAVING COUNT(*)>3;
+
+c)
+SELECT employee.ename FROM employee WHERE salary < (SELECT MIN(price) FROM flight);
+
+d)
+SELECT aircraft.aname,AVG(employee.salary) FROM certified INNER JOIN aircraft ON certified.aid=aircraft.aid INNER JOIN employee ON 
+certified.eid=employee.eid WHERE aircraft.crusing_range>950 GROUP BY employee.salary,aircraft.aname;
+
+e)
+SELECT employee.ename FROM certified INNER JOIN employee ON certified.eid=employee.eid INNER JOIN 
+aircraft ON certified.aid=aircraft.aid WHERE aname='Boeing';
+
+f)
+SELECT aid from aircraft WHERE crusing_range<(SELECT MIN(flight.distance) FROM flight);
+
+g)
+SELECT DISTINCT flight.flfrom,flight.flto FROM flight WHERE NOT EXISTS(SELECT * FROM employee WHERE employee.salary<65000 AND NOT 
+EXISTS(SELECT * FROM aircraft,certified WHERE aircraft.crusing_range<flight.distance AND employee.eid=certified.eid AND aircraft.aid=certified.aid));
+
+h)
+SELECT ename from certified INNER JOIN employee ON certified.eid=employee.eid INNER JOIN aircraft ON certified.aid=aircraft.aid 
+WHERE aircraft.crusing_range>950AND NOT aircraft.aname LIKE 'Boeing%'; 
+
+i)
+
+j)
+SELECT pilot.avg-emp.avg AS difference_between_employee_and_pilot_salary FROM(SELECT AVG(e.salary)AS avg FROM employee e WHERE e.eid 
+IN(SELECT DISTINCT c.eid FROM certified c))AS pilot,(SELECT AVG(e1.salary)AS avg FROM employee e1)AS emp;
+
+k)
+
+SELECT e.ename ,e.salary FROM employee e WHERE e.eid NOT IN(SELECT DISTINCT c.eid FROM certified c) AND e.salary>(SELECT (e1.salary) 
+FROM  employee e1 WHERE e1.eid  IN(SELECT DISTINCT c1.eid FROM certified c1)); // not working
+
+l)
+
+SELECT e.ename FROM certified c INNER JOIN employee e ON c.eid=e.eid INNER JOIN aircraft a ON c.aid=a.aid WHERE a.crusing_range>900 ;
+m)
+SELECT e.ename FROM certified c INNER JOIN employee e ON c.eid=e.eid INNER JOIN aircraft a ON c.aid=a.aid WHERE a.crusing_range>900 
+GROUP BY e.ename HAVING COUNT(*)>1;
+
+n)
+SELECT ename from certified INNER JOIN employee ON certified.eid=employee.eid INNER JOIN aircraft ON certified.aid=aircraft.aid 
+WHERE aircraft.crusing_range>900;

@@ -1,0 +1,17 @@
+body{
+	background-color:lightblue;
+}
+table#t01,th,td{
+	border:1px solid black;
+	border-collapse:collapse;
+	background-color:transparent;
+	font-size:50px;
+	padding: 15px;
+	
+}
+table#t01:hover
+{
+	background-color:transparent;
+	color:blue;
+	text-decoration:underline;
+}

@@ -1,0 +1,152 @@
+IN TERMINAL 
+
+// To install the POSTGRESQL in UBUNTU
+
+ sudo apt-get install postgresql postgresql-contrib 
+ 
+ //TO check the installed directory of POSTGRESQL
+ 
+ls /etc/postgresql/9.5/main/
+
+//To check the services of postgresql 
+
+servie postgresql
+
+//These are the services of Postgresql 
+
+servie postgresql status/start/stop/reload/force-reload
+
+//to run the Postgresql
+
+sudo su postgres
+
+//To open the SQL command line
+
+psql
+
+// To create the Database in Postgresql 
+
+CREATE DATABASE database_name;
+
+//to select the database use below command with desire database name (here db name)
+
+\c dbname;
+
+//To create table in database 
+ 
+ CREATE TABLE table_name(column_name1 data_type(size of data_type) constraints, column_name2 data_type(size of data_type) constraints ,... and so on)
+
+//To view the table in Database
+
+\d table_name
+
+//To delete empty DATABASE
+
+DROP database_name;
+
+ //To change the name or rename the table 
+ 
+ ALTER TABLE tablename RENAME TO new_table_name;
+ 
+ //To add new column in table 
+ 
+ ALTER TABLE table_name ADD COLUMN column_name data_type(size of data_type) constraints ;
+ 
+ //To remove the column in Table 
+ 
+ ALTER TABLE table_name DROP column_name;
+ 
+ //To add Foreign Key in the given Table 
+ 
+ ALTER TABLE table_name ADD FOREIGN KEY (column_name ) REFERENCES other_table_name (column_name);
+ 
+ // To Drop the foreign key from the table
+ 
+ ALTER TABLE table_name DROP FOREIGN KEY column_name;
+ 
+ //To Add Primary key in our Databse
+ 
+UPDATE table_name SET column_name1=value1,column_name2=value2,... WHERE condition;
+
+//To upadate the value in a table
+
+DELETE from table_name WHERE condition;
+
+//To delete the entire row in a table
+
+SELECT column_name from table_name WHERE column_name NOT IN(value1,value2);
+
+//To select the table name using NOT IN
+
+SELECT column_name from table_name WHERE column_name BETWEEN value1 and value2;
+
+ CREATE  [TEMP | TEMPORARY] VIEW view_name AS   SELECT column1, column2.....      FROM table_name      WHERE [condition];  
+ 
+ .// To create a View in Database 
+ 
+ SELECT * from view_name;
+ 
+ //To retrieve data from View.
+ 
+ DROP view_name;
+ 
+ //To delete the view from Database
+ 
+SELECT table1.columns, table2.columns  FROM table1  INNER JOIN table2  ON table1.common_filed = table2.common_field;
+
+// INNER JOIN 
+
+SELECT table1.columns, table2.columns  FROM table1  LEFT OUTER JOIN table2  ON table1.common_filed = table2.common_field;
+
+//LEFT JOIN
+
+SELECT table1.columns, table2.columns  FROM table1  RIGHT OUTER JOIN table2  ON table1.common_filed = table2.common_field;
+
+//RIGHT JOIN
+
+SELECT table1.columns, table2.columns  FROM table1  FULL OUTER JOIN table2  ON table1.common_filed = table2.common_field;
+
+//Full OUTER JOIN
+
+SELECT coloums   FROM table1   CROSS JOIN table2\
+
+//CROSS JOIN
+
+SELECT column1, column2, ...FROM table_name WHERE columnN LIKE pattern;
+
+//Like clause
+
+SELECT column_name AS alias_name FROM table_name;
+
+SELECT column_name(s) FROM table_name AS alias_name;
+
+//Alias to change the name of the or coloum _name or table
+
+SELECT AGE(timestamp '2016-01-26', timestamp '1947-08-15');
+
+SELECT AGE(timestamp '1947-08-15');
+
+// It is used to produce the current age.
+
+SELECT CURRENT_TIME;
+
+SELECT CURRENT_DATE;
+
+SELECT CURRENT_TIMESTAMP;
+
+SELECT LOCALTIMESTAMP;
+
+SELECT name,salary,designation,dept from department INNER JOIN company ON department.id=company.dept_id WHERE department.dept='Technical' ORDER BY salary DESC;
+
+SELECT name,salary,designation,dept from department INNER JOIN company ON department.id=company.dept_id WHERE department.dept='Technical' ORDER BY salary DESC LIMIT 1 OFFSET 1;
+
+//Query for join and maximum value
+
+CREATE TABLE ArrayTest(id int NOT NULL PRIMARY KEY,name varchar(50),saving_per_quarter integer[],scheme text[][]);
+
+INSERT INTO ArrayTest values(101,'Shashank','{20000,14600,23500,13250}','{{"FD","MF"},{"FD","Property"}}'); 
+
+ SELECT * from ArrayTest
+ 
+ //Commands to create an array in table and to insert data in array and to retrieve it. It violates the Normalization(first form which states value should be atomic in column)
+SELECT * from ArrayTest

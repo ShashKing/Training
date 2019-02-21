@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form Test</title>
+</head>
+<body>
+	<form>
+	First Name:<br>
+<input type="text" name="First name" value="Shashank" readonly><br>
+Last Name:<br>
+<input type="text" name="Last Name"><br>
+Password:<br><input type="Password" name="Password"><br>
+Email:<br>
+<input type="email" name="email">
+<br><br>
+<select name="cars" size="3" multiple>
+	
+	<option value="Volvo">Volvo</option>
+	<option value="Mercedes" selected>Mercedes</option>
+	<option value="Saab">Saab</option>
+	<option value="Fiat">Fiat</option>
+	<option value="Audi">Audi</option>
+
+</select><br>
+<input type="submit" value="Submit"name="Submit"><br>
+<textarea name="message" rows="10" cols="30">
+	
+</textarea><br>
+
+	<input list="browsers">
+	<datalist id="browsers">
+		<option value="Internet Explorer"></option>
+		<option value="Firefox"></option>
+		<option value="Chrome"></option>
+		<option value="Opera"></option>
+		<option value="Safari"></option>
+		<br>
+		
+		<br>
+	</datalist>
+	<br>
+	<input type="button" value="Click me" name="Button"><br>
+	<input type="range" id="a" name="a" value="50">
+	<input type="range" id="b" name="b" value="50">
+	<output name="x" for="a b"></output>
+	<br><br>
+	<input type="button" value="Button"><br>
+	<input type="checkbox" name="vehicle1" value="Bike">I have a Bike<br>
+	<input type="checkbox" name="vehicle2" value="car">I have a car
+	<br>
+	
+	<input type="radio" name="gender" value="male">Male<br>
+	<input type="radio" name="gender" value="female">Female<br>
+	<input type="radio" name="gender" value="other">Other
+	<br>
+	Select your favorite color:
+	<input type="color" name="favcolor">
+	<br>
+	Birthday:
+	<input type="date" name="bday"><br>
+	Select a file:<input type="file" name="myfile"><br>
+	<input type="submit" value="Submit"><br>
+	Quantity (between 1 and 10):<br>
+		<input type="number" name="quantity" min="1" max="10"><br>
+		Google Search: <br>
+		<input type="search" name="srch">
+		<br>
+</form>
+</body>
+</html>
