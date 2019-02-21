@@ -1,0 +1,106 @@
+
+.asd {
+	background-color: lightblue;
+	color:blue;
+	text-align:center;
+}
+
+.img{
+	
+	background-color: white;
+}
+body {
+	
+	
+	
+}
+li a{
+	font-size: 20px
+	background-color:black;
+	color: black;
+
+}
+li a:hover{
+	background-color: grey;
+	color:black;
+}
+.text1{
+	font-size: 20px
+
+}
+.div1{
+	background-color: white;
+}
+.div2{
+	color: green;
+	background-color: #cccccc;
+}
+.div3{
+	color: green;
+	background-color: lightgrey
+}
+.div4{
+	text-align: justify;
+	color: green;
+
+}
+.div5{
+	list-style: none;
+}
+.div6{
+	font-size: 13px
+}
+
+.subdiv{
+	display: inline-block;
+	
+}
+.div7{
+	color: green;
+}
+.div8{
+	font-size: 20px
+}
+.left_side, 
+.rigth_side {
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+}
+.doctor ul {
+	background-color: green;
+}
+.doctor ul li {
+	color: white;
+	padding: 10px;
+}
+.doctor ul li a {
+	color: white;
+}
+.nav ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 20px;
+	overflow: hidden;
+	background-color: green;
+}
+.nav li{
+	float: right;
+	margin: 0px 50px
+
+}
+
+.nav li a{
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 16px
+	text-decoration:none;
+}
+.nav li a:hover{
+	color: lightgreen;
+}
+.div9 {
+		font-size: 30px
+		
+}
