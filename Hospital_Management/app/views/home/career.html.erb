@@ -1,0 +1,23 @@
+<h4>
+	Currently there is no opening
+</h4>
+Enter Your Mail address ,We will inform you when we are hiring
+<br>
+<form name="form1" id="form1">
+Email:<input type="email" name="email">
+<br>
+<input type="submit" name="submit">
+</form>
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+			$("#form1").validate({
+					  rules: {
+					    email: {
+					      required: true,
+					      email: true,
+					      maxlength: 255
+					    }			    
+					}
+					});
+		</script>

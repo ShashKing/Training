@@ -1,24 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Fortis Hospital</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-</head>
-<body>
 	<div class="nav">
 		<ul class="div9">
+		
+		
 		<li>
-			<a href="">Home</a>
+			<%= link_to 'About', "https://www.fortishealthcare.com/about-us" %>
 		</li>
 		<li>
-			<a href="">News</a>
+			<%= link_to 'Career', "/career" %>
+		</li>
+		
+		
+		<li>
+			<%= link_to 'Contact Us',"https://www.fortishealthcare.com/contact-us"%>
 		</li>
 		<li>
-			<a href="">Contact Us</a>
+			<%= link_to 'CSR',"https://www.fortishealthcare.com/csr"%>
 		</li>
 		<li>
-			<a href="">About</a>
+			<%= link_to 'Home', "https://www.fortishealthcare.com/" %>
 		</li>
+		
+		
 	</ul>
 	</div>
 <div class="img">
@@ -29,17 +34,89 @@
 </div>
 	<br>
 <div>
-	<img src="assets/Home/1.jpg" width="100%" height="500">
+	<div class="left_side_up">
+		<img src="assets/Home/1.jpg" width="100%" height="500">
 	<br>
+	</div >
+	
+	
+	
+	<div class="rigth_side_up">
+		
+			
+		<div class="form">
+			<h2 class="req">
+				Request An Appointmnet
+			</h2>
+			<form action="" method="get" id="form1">
+			<input type="text" name="first_name" placeholder="First Name*" style="width: 400px" />
+			<br> 
+			<br>
+			<input type="text" name="last_name" placeholder="Last Name*" style="width: 400px" />
+			<br>
+			<br>
+			Gender:<br>
+			<input type="radio" name="gender" value="male" checked>Male
+			<input type="radio" name="gender" value="female">Female
+			<input type="radio" name="gender" value="other">Other
+			<br>
+			<br>
+			<input type="email" id="email" name="email" placeholder="Your Email Address*" style="width: 400px" />
+			<br>
+			<br>
+			<input type="text" id="foc" name="phone_number" placeholder="Your Contact Number" style="width: 400px" />	
+			<br>
+			<br>
+			Diseases:<br>
+			<input type="checkbox" name="disease" value="sugar">I have Sugar
+			<input type="checkbox" name="disease" value="highbp">I have High Blood Pressure
+			<input type="checkbox" name="disease" value="lowbp">I have Low Blood Pressure
+			<input type="checkbox" name="disease" value="migrain">I am having Migrains
+			<br>
+			<br>
+			<select name="city">
+				<option value="select_city">SELECT CITY*</option>
+				<%@cities.each do|city|%>
+
+				<option>
+					 <%=city.name%>
+				</option>	
+					
+					<%end%>				
+
+			</select>
+			<br>
+			<br>
+			<input type="area" id="comment" name="comment" placeholder="Comments*" style="width: 600px">
+			<br>
+			<br>
+
+			<center>
+			<input type="reset" name="Reset">
+			<input type="submit" name="Submit">
+			</center>
+			</form>
+
+
+			<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+
+		</div>
+		
+	</div>
 	
 </div>
 <div class="div1">
 	<center>
 		<pre class="text1">
-			Pay online and get 10% off on Doctor Consultation. 
-			Download <a href="">My Fortis</a> app
+	Pay online and get 10% off on Doctor Consultation. 
+	Download 
+	<%=link_to 'My Fortis App', "/mobile" %>
+	 app
 
-			50% off on Doctor Consultations for Senior Citizens
+	50% off on Doctor Consultations for Senior Citizens
 		</pre>
 	</center>
 </div>
@@ -131,7 +208,33 @@ operates 45 healthcare </strong> facilities in <strong> 4 countries.</strong>
 		
 			
 		</div >
+
+		<script>
+			$("#form1").validate({
+					  rules: {
+					    email: {
+					      required: true,
+					      email: true,
+					      maxlength: 255
+					    },
+					    first_name: {
+					    	required: true,
+					    	maxlength: 15
+					    },
+					    last_name: {
+					    	required: true,
+					    	maxlength: 15
+					    },
+					    phone_number: {
+					    	required: true,
+					    	minlength: 9,
+					    	maxlength: 10,
+					    	number: true
+					    }
+					    
+
+					}
+					});
+		</script>
 		</footer>
 	</div>
-</body>
-</html>

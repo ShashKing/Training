@@ -108,3 +108,30 @@ footer{
 	color: grey;
 	background-color: black;
 }
+
+.left_side_up, 
+.rigth_side_up {
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+
+}
+.req{
+	text-align: center;
+}
+.form{
+	border:  1px solid #000;
+	width: 100%;
+	padding: 22px 30px;
+	margin: 18px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+.error{
+	color: red;
+}
+#form1 input{
+	height: 20px;
+}
