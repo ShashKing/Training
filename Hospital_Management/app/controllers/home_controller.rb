@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
 
 	def index
-		@doctors=Doctor.all
-		@cities=City.all
+		@doctors = Doctor.all
+		@cities = City.all
+		@appointments = Appointment.all
 	end
 
 	def mobile
@@ -10,4 +11,6 @@ class HomeController < ApplicationController
 	def career
 		
 	end
+
+
 end

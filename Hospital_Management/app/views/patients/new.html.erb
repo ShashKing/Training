@@ -1,0 +1,35 @@
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+			<script>
+	$("#form2").validate({
+					  rules: {
+					    
+					   name: {
+					    	required: true,
+					    	maxlength: 15
+					    }					    					    					
+					}
+					});
+</script>
+<h3>
+	Enter Your Details
+</h3>
+<%= form_with  model: @patient, id:"form2" do |form| %>
+<%= form.text_field :name, placeholder: "name" %>
+<br>
+<br>
+<%= form.text_field :disease, placeholder: "disease" %>
+<br>
+<br>
+<%= form.text_field :doctor_id,placeholder: "Doctor Id"%>
+<br>
+<br>
+
+<%= form.submit "Submit"%>
+<br>
+<br>
+<%= link_to 'back',"/patients"%>
+</center>
+<% end %>
+

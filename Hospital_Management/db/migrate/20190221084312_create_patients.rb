@@ -3,7 +3,7 @@ class CreatePatients < ActiveRecord::Migration[5.2]
     create_table :patients do |t|
       t.string :name
       t.string :disease
-
+      
       t.timestamps
     end
   end

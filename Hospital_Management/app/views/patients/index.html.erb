@@ -1,0 +1,9 @@
+<%= link_to 'Enter details of new patient',"/patients/new"%>
+<%@patients.each do|patient|%>
+<ul>
+	<li style="list-style: none;">
+		<%= link_to patient.name , "/patients/#{patient.id}"   %></li>
+</ul>
+
+<%end%>
+<br>

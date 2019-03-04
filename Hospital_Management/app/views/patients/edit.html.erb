@@ -1,0 +1,15 @@
+<center>
+	<h3>Update Patients Details</h3>
+<%= form_for @patient do |form|%>
+	<%= form.text_field :name, placeholder: "name"%><br>
+	<br>
+	<%= form.text_field :disease, placeholder: "disease"%><br>
+	<br>
+	<%= form.text_field :doctor_id, placeholder: "Doctor Id"%>
+	<br>
+	<br>
+	<%= form.submit %>
+	<%end%>
+	<%= link_to 'back',"/patients/#{@patient.id}"%> 
+	<%= link_to 'View all',"/patients"%>
+</center>

@@ -1,0 +1,14 @@
+<h3><%=@patient.id%></h3>
+<h1><%=@patient.name%></h1>
+
+<h4><%=@patient.disease%></h4>
+<h2><%= @patient.updated_at%></h2>
+<h2><%= @patient.created_at%></h2>
+
+<%= link_to 'back',"/patients"%><br>
+<br>
+
+<%= link_to 'Update Your Details',"/patients/#{@patient.id}/edit"%>
+<br>
+<br>
+<%= link_to 'Delete Your details',@patient, method: :delete, data: {confirm: 'Are You Sure?'}%>

@@ -1,0 +1,10 @@
+<h1>
+	Hello world from erb
+</h1>
+<%@array.each do|n| %>
+	<%=n%><br>
+	<%end%>
+
+	<a href="/home/mobile">Click here</a>
+	<br>
+	<%= link_to('Click here for ruby experience',{:controller=>'home',:action =>'mobile'})%>

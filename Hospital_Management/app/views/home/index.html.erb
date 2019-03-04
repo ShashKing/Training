@@ -1,31 +1,5 @@
-	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<div class="nav">
-		<ul class="div9">
-		
-		
-		<li>
-			<%= link_to 'About', "https://www.fortishealthcare.com/about-us" %>
-		</li>
-		<li>
-			<%= link_to 'Career', "/career" %>
-		</li>
-		
-		
-		<li>
-			<%= link_to 'Contact Us',"https://www.fortishealthcare.com/contact-us"%>
-		</li>
-		<li>
-			<%= link_to 'CSR',"https://www.fortishealthcare.com/csr"%>
-		</li>
-		<li>
-			<%= link_to 'Home', "https://www.fortishealthcare.com/" %>
-		</li>
-		
-		
-	</ul>
-	</div>
+	
 <div class="img">
 	<center>
 	<img src="assets/Home/logo.png"  alt="logo" width="150" 
@@ -46,8 +20,9 @@
 			
 		<div class="form">
 			<h2 class="req">
-				Request An Appointmnet
+				Request An Appointment
 			</h2>
+			
 			<form action="" method="get" id="form1">
 			<input type="text" name="first_name" placeholder="First Name*" style="width: 400px" />
 			<br> 
@@ -118,6 +93,7 @@
 
 	50% off on Doctor Consultations for Senior Citizens
 		</pre>
+		<%= link_to 'Show me details of patients',"/patients"%>
 	</center>
 </div>
 <div class="div2">
@@ -233,16 +209,7 @@ The department provides treatment for people with neurological disorders such as
 	</div>
 		
 
-		<footer >
-			<div class="left_side">
-			© 2018 Fortis Healthcare. All Rights Reserved.
-		</div>
-		<div class="rigth_side">
-
-			Terms & Conditions Apply
 		
-			
-		</div >
 
 		<script>
 			$("#form1").validate({
@@ -271,5 +238,4 @@ The department provides treatment for people with neurological disorders such as
 					}
 					});
 		</script>
-		</footer>
 	</div>
