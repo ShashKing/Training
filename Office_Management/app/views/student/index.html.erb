@@ -1,0 +1,11 @@
+<h3><%= link_to 'Create New Student Details',"/student/new",remote:true %></h3>
+
+<% @students.each do|student|%>
+<%= link_to student.name,"/student/#{student.id}" ,remote:true%><br>
+<%end%>
+
+
+
+<div id="student_details">
+	
+</div>

@@ -1,0 +1,17 @@
+<center>
+	<h2>
+		Update Your Records
+	</h2>
+	<%= form_with model: @students,id:"submit" do |form| %>
+
+	<%= form.text_field :name, placeholder: "Email"%><br><br>
+	<%= form.text_field :address, placeholder: "Address"%><br><br>
+	<%= form.text_field :roll_no, placeholder: "Roll No"%><br><br>
+	<%= form.text_field :teacher_id, placeholder: "Teachers Id"%><br><br>
+	
+	<%= form.submit 'Submit'%>
+	<% end %>
+	
+	<%= link_to 'View all',"/student"%>
+	
+</center>

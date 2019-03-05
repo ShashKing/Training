@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Enter New Details',"home/new"%>
+<h1>Your Deatils</h1>
+<% @employees.each do|employee| %>
+<ul>
+	<li style="list-style-type: none;">
+<%= link_to employee.name ,"/home/#{employee.id}", remote: true %>
+</li>
+</ul>
+
+<% end %>
+
+
+<div id="employee-details">
+</div>

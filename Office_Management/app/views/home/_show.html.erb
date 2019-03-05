@@ -1,0 +1,18 @@
+<center>
+<h3>Hello <%= @employee.name %><br></h3>
+<h4>Email address: <%= @employee.email %><br>
+Your Address: <%= @employee.address %><br>
+Your salary is: <%= @employee.salary %><br>
+Your password is: <%= @employee.password %><br>
+</h4>
+<br>
+<h2>
+	<%= link_to 'Update Your record',"/home/#{@employee.id}/edit"%>
+</h2>
+<h2>
+	<%= link_to 'Delete this record',@employees, method: :delete, data: {confirm: 'Are You Sure?'}%>
+</h2>
+<h2>
+	<%= link_to 'Back',"/home"%>
+</h2>
+</center>

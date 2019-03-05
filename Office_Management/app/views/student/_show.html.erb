@@ -1,0 +1,12 @@
+<center>
+
+<h2>Hello <%= @student.name%></h2><br>
+<h3>Your Roll No is <%= @student.roll_no%></h3><br>
+<h3>Your Address is <%= @student.address%></h3><br>
+
+<h3>Your teacher id is <%=link_to  @student.teacher_id,'teacher/index'%></h3><br>
+<h4>
+<%= link_to 'Delete this record',@employees, method: :delete, data: {confirm: 'Are You Sure?'}%>
+<h4><%= link_to 'Update Your Details',"/student/edit",remote:true %></h4>
+</h4>
+</center>

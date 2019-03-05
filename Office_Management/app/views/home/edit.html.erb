@@ -1,0 +1,43 @@
+<center>
+	<h2>
+		Update Your Records
+	</h2>
+	<%= form_with model: @employees,id:"submit" do |form| %>
+
+	<%= form.text_field :email, placeholder: "Email"%><br><br>
+	<%= form.text_field :address, placeholder: "Address"%><br><br>
+	<%= form.text_field :salary, placeholder: "salary"%><br><br>
+	
+	<%= form.submit 'Submit'%>
+	<% end %>
+	
+	<%= link_to 'View all',"/home"%>
+	
+</center>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+			<script>
+				$("#submit").validate({
+					rules:{
+						address:{
+							required:true,
+							minlength:6,
+							maxlength:100
+						},
+						email:{
+							required:true,
+							email:true,
+							minlength:6,
+							maxlength:90
+						},
+						salary:{
+							required:true,
+							number:true,
+							minlength:4,
+							maxlength:10
+						}
+
+					}
+				});
+			</script>

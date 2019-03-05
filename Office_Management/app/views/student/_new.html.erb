@@ -1,0 +1,11 @@
+<center><h1>Enter Your Details</h1>
+<%= form_with model: @students do|form|%>
+<%= form.text_field :name,placeholder:"Enter Your Name"%><br><br>
+<%= form.text_field :roll_no,placeholder:"Enter Your Roll Number"%><br><br>
+<%= form.text_field :address,placeholder:"Enter Your Address"%><br><br>
+
+<%= form.text_field :teacher_id,placeholder:"Enter ID"%><br><br>
+<%= form.submit "Submit Your details"%>
+	<% end %>
+
+</center>

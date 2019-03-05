@@ -1,0 +1,51 @@
+
+<center><h1>Enter Your Details</h1>
+<%= form_with model: @employees, id:"submit" do|form| %>
+<%= form.text_field :name ,placeholder: 'Enter Your Name'%><br><br>
+<%= form.text_field :email ,placeholder: 'Enter Your Email'%><br><br>
+<%= form.text_field :address ,placeholder: 'Enter Your Address'%><br><br>
+<%= form.text_field :salary ,placeholder: 'Enter Your Salary'%><br><br>
+<%= password_field_tag(:password, "", placeholder: "Password") %><br><br>
+<%= form.submit 'Submit'%><br><br>
+<%= link_to 'back',"/home"%>
+<% end %>
+</center>
+
+
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+			<script>
+				$("#submit").validate({
+					rules:{
+						name:{
+							required:true,
+							minlength:2,
+							maxlength:30
+						},
+						address:{
+							required:true,
+							minlength:5,
+							maxlength:100
+						},
+						email:{
+							required:true,
+							email:true,
+							minlength:6,
+							maxlength:90
+						},
+						salary:{
+							required:true,
+							number:true,
+							minlength:4,
+							maxlength:10
+						},
+						password:{
+							required:true,
+							minlength:4
+						}
+
+					}
+				});
+			</script>
