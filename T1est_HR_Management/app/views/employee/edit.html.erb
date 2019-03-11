@@ -1,1 +1,40 @@
+<center>
+	<h1>Enter Details</h1> <br>
+
+
+	<h3>Hello <%= @employee.first_name %>
+<%= @employee.last_name %></h3>
+	<%= form_for @employee,url: "" do|form|%>
+
+
+<%= form.select :gender_id, options_from_collection_for_select(Gender.all,:id,:name),{prompt: 'Select Gender',required: true}%>
+<br><br>
+Date Of Birth
+<br>
+ <%= date_field_tag :date_of_birth, Date.today%>
+
+ <br><br>
+ <%= form.text_field :email,placeholder:"Enter Your Email"%><br><br>
+ <%= password_field_tag :password, nil %><br/>
+<%= form.text_field :current_CTC,placeholder:"Enter Your Current CTC"%><br><br>
+<%= form.text_field :designation ,placeholder:"Enter Your Designation" %><br><br>
+<%= form.select :department_id, options_from_collection_for_select(Department.all, :id, :name), {prompt: 'Select Department', required: true} %>
+<br><br>
+<%= form.select :role_id, options_from_collection_for_select(Role.all, :id, :name), {prompt: 'Select Role', required: true} %>
+<br><br>
+<%= label_tag 'Skills'%><br>
+ <%= form.check_box :skill,{:class => "myclass", :style => "mystyle", name: 'skill[]', checked: true}, "ruby", true %> Ruby
+	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "rails", false %>
+	 Rails
+	 <%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "php", false %> PHP
+	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "html", false %> HTML
+	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "css", false %> CSS
+	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "postgresql", false %> Postgresql
+	<br>
+	<br>
+<%= form.submit "Submit Your Details"%>
+
+
+<% end %>
+</center>
 

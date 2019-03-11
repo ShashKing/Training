@@ -1,7 +1,35 @@
-<h2><%= link_to 'Create New Details of Employee',"/employee/new"%>
+<center><h2><%= link_to 'Create New Details of Employee',"/employee/new"%>
 </h2>
-<br><br> 
-<% @employees.each do|employee| %>
-<%= link_to employee.employee_code ,"employee/#{employee.id}"%><br>
-<% end %>
+<br>
 
+
+<table>
+	<tr>
+		<th>
+			Employee Code
+		</th>
+		<th>
+			Employee Name
+		</th>
+	</tr><% @employees.each do|employee| %>
+	<tr>
+		<td>
+
+			<%= link_to employee.employee_code ,"employee/#{employee.id}"%><br>
+			
+		</td>
+		<td>
+			<%= link_to employee.first_name ,"employee/#{employee.id}"%> 
+		</td>
+		<% end %>
+	</tr>
+</table>
+
+
+
+</center>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>

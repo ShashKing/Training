@@ -1,12 +1,105 @@
+<table style="width:100%">
+	<tr>
+		<th>
+			Employee Code:
+		</th>
+			<td>
+			<%= @employee.employee_code %>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Name
+		</th>
+	
+		<td>
+			<%= @employee.first_name %> <%= @employee.last_name %>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Gender
+		</th>
+		<td>
+			<%= @employee.gender.name %>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Email Address
+		</th>
+		<td>
+			<%= @employee.email %>
+		</td>  
+	</tr>
+	<tr>
+		<th>
+			Password
+		</th>
+		<td>
+			<%= @employee.password %>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Current Salary
+		</th>
+		<td>
+			<%= @employee.current_CTC %>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Date of Birth
+		</th>
+		<td>
+			<%= @employee.date_of_birth %>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Department
+		</th>
+		<td>
+			<%= @employee.department.name %>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Role
+		</th>
+		<td>
+			<%= @employee.role.name %>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Skill
+		</th>
+		<td>
+			<%= @employee.skill %>
+		</td>
+	</tr>
+	<tr>
+		<th>
+			Designation
+		</th>
+		<td>
+			<%= @employee.designation %>
+		</td>
+	</tr>
+</table>
 
-<%= @employee.first_name %>
-<%= @employee.last_name %><br>
-<%= @employee.gender.name %><br>
-<%= @employee.email %><br>
-<%= @employee.current_CTC %><br>
-<%= @employee.date_of_birth %><br>
-<%= @employee.department.name %><br>
-<%= @employee.skill %><br>
-<%= @employee.role.name %><br>
-<%= @employee.designation %><br><br>
-<%= link_to 'Update Your Value',"employee/edit"%><br>
+
+<%= link_to 'Update Your Value',"/employee/#{@employee.id}/edit"%><br>
+<%= link_to 'Delete this record',@employees, method: :delete, data: {confirm: 'Are You Sure?'}%>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse
+}
+th, td {
+  padding: 10px;
+  text-align: left;
+  }
+</style>
