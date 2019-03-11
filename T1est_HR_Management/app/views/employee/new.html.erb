@@ -26,11 +26,11 @@ Date Of Birth
 <br><br>
 <%= label_tag 'Skills'%><br>
  <%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "ruby", true %> Ruby
-	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "rails", false %>
+	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "rails", true %>
 	 Rails
-	 <%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "php", false %> PHP
-	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "html", false %> HTML
-	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "css", false %> CSS
+	 <%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "php", true %> PHP
+	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "html", true %> HTML
+	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "css", true %> CSS
 	<%= form.check_box :skill, {:class => "myclass", :style => "mystyle", name: 'skill[]'}, "postgresql", false %> Postgresql
 	<br>
 	<br>

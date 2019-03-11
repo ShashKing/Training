@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_092343) do
+ActiveRecord::Schema.define(version: 2019_03_11_133446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 2019_03_11_092343) do
     t.string "last_name"
     t.string "designation"
     t.bigint "current_CTC"
-    t.bigint "gender_id"
     t.date "date_of_birth"
     t.string "email"
     t.string "skill", default: [], array: true
     t.string "password"
+    t.bigint "gender_id"
     t.index ["department_id"], name: "index_employees_on_department_id"
     t.index ["employee_code"], name: "index_employees_on_employee_code", unique: true
     t.index ["gender_id"], name: "index_employees_on_gender_id"

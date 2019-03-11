@@ -1,3 +1,3 @@
 class Gender < ApplicationRecord
-	has_one :employee
+	has_many :employees
 end
