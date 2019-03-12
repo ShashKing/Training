@@ -4,5 +4,7 @@ class User < ApplicationRecord
   #before_action :authenticate_user!
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         has_one :role
+         belongs_to :role
+
+         @users = User.all
 end

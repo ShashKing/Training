@@ -9,4 +9,7 @@ class EmployeeMailer < ApplicationMailer
     @employee = employee
     mail to: employee.email , subject: "Sign Up Confirmation"
   end
+
+
+
 end

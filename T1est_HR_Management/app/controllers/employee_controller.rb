@@ -28,7 +28,7 @@ class EmployeeController < ApplicationController
     date = DateTime.parse(params[:date_of_birth])
     parameters = parameters.merge!(date_of_birth: date)
     @employee = Employee.create(parameters)
-    if @employee.save 
+      if @employee.save 
       EmployeeMailer.signup_confirmation(@employee).deliver_now
       redirect_to '/', notice: "Signed up successfully"
     else
