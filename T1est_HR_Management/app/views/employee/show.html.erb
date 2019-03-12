@@ -21,7 +21,7 @@
 			Gender
 		</th>
 		<td>
-			<%= @employee.gender.name %>
+			<%= @employee.gender.name if @employee.gender.present? %>
 		</td>
 	</tr>
 	<tr>

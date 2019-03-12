@@ -1,3 +1,7 @@
+
+<% if user_signed_in?%>
+        
+      
 <center><h2><%= link_to 'Create New Details of Employee',"/employee/new"%>
 </h2>
 <br>
@@ -35,3 +39,7 @@ table, th, td {
   border: 1px solid black;
 }
 </style>
+<% end %>
+<% if !user_signed_in?%>
+        <%= link_to "Login Again or Sign Up", new_user_session_path%>
+      <% end %>
