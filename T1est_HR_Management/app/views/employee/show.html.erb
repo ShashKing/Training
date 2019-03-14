@@ -32,14 +32,7 @@
 			<%= @employee.email %>
 		</td>  
 	</tr>
-	<tr>
-		<th>
-			Password
-		</th>
-		<td>
-			<%= @employee.password %>
-		</td>
-	</tr>
+	
 	<tr>
 		<th>
 			Current Salary
@@ -89,7 +82,7 @@
 		</td>
 	</tr>
 </table>
-
+<center>
 <% if current_user.role.name == "CEO"%>
 <%= link_to 'Update Your Value',"/employee/#{@employee.id}/edit"%><br>
 <%= link_to 'Delete this record',@employees, method: :delete, data: {confirm: 'Are You Sure?'}%>
@@ -99,8 +92,11 @@
 <%= link_to 'Update Your Value',"/employee/#{@employee.id}/edit"%><br>
 
 <% else%>
-<%= "You are not authenticated"%>
+<%= ""%>
 <% end %>
+
+<%= link_to 'back',"/"%>
+</center>
 <style>
 table, th, td {
   border: 1px solid black;

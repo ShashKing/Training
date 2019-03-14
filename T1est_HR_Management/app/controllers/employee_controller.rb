@@ -6,6 +6,7 @@ class EmployeeController < ApplicationController
 
     @employees = employees.order(employee_code: :asc)
 
+    
 
 
   end
@@ -64,6 +65,6 @@ class EmployeeController < ApplicationController
   end
   private
   def employee_params
-  	params.require(:employee).permit(:employee_code,:first_name,:last_name,:password,:designation,:current_CTC,:role_id,:department_id,:skill,:gender_id,:email)
+  	params.require(:employee).permit(:employee_code,:first_name,:last_name,:password,:designation,:current_CTC,:role_id,:department_id,:gender_id,:email)
   end
 end

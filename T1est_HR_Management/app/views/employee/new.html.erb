@@ -1,7 +1,7 @@
 <center>
 	<h1>Enter Details</h1> <br>
 	<%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
-<%= form.text_field :employee_code,placeholder:"Enter Your Employee Code"%><br><br>
+<%= form.text_field :employee_code,placeholder:"Enter Your Employee Code",required:true%><br><br>
 <%= form.text_field :first_name,placeholder:"Enter Your First Name"%><br><br>
 <%= form.text_field :last_name,placeholder:"Enter Your Last Name"%><br><br>
 
@@ -14,7 +14,7 @@ Date Of Birth
  <br><br>
  <%= form.text_field :email,placeholder:"Enter Your Email"%><br><br>
 
- <%= form.password_field :password,  placeholder: "Password" %><br><br>
+ <!-- <%#= form.password_field :password,  placeholder: "Password" %><br><br> -->
 
 <%= form.text_field :current_CTC,placeholder:"Enter Your Current CTC"%><br><br>
 
@@ -47,7 +47,7 @@ Date Of Birth
       <script>
         $("#submit").validate({
           rules:{
-           employee[first_name]:{
+           first_name:{
               required:true,
               minlength:2,
               maxlength:30

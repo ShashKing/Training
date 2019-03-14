@@ -2,7 +2,24 @@
 <% if user_signed_in?%>
         
       
-<center><h2><%= link_to 'Create New Details of Employee',"/employee/new"%>
+<center><h2>
+
+
+<% if current_user.role.name == "CEO"%>
+<%= link_to 'Create New Details of Employee',"/employee/new"%>
+<br>
+
+<% elsif current_user.role.name == "HR" %>
+<%= link_to 'Create New Details of Employee',"/employee/new"%>
+
+<% else%>
+<%= " "%>
+<% end %>
+
+
+
+
+  
 </h2>
 <br>
 
