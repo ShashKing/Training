@@ -90,11 +90,17 @@
 	</tr>
 </table>
 
-
+<% if current_user.role.name == "CEO"%>
 <%= link_to 'Update Your Value',"/employee/#{@employee.id}/edit"%><br>
 <%= link_to 'Delete this record',@employees, method: :delete, data: {confirm: 'Are You Sure?'}%>
+<br>
 
+<% elsif current_user.role.name == "HR"	%>
+<%= link_to 'Update Your Value',"/employee/#{@employee.id}/edit"%><br>
 
+<% else%>
+<%= "You are not authenticated"%>
+<% end %>
 <style>
 table, th, td {
   border: 1px solid black;

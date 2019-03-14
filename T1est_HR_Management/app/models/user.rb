@@ -6,5 +6,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          belongs_to :role
 
-         @users = User.all
+        
 end

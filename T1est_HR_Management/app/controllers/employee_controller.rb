@@ -6,14 +6,18 @@ class EmployeeController < ApplicationController
 
     @employees = employees.order(employee_code: :asc)
 
+
+
   end
 
    def show
 
   	@employee = Employee.find(params[:id])
     @employee.department
-    @employee.role
+    #@employee.role
     @employee.gender
+
+    
 
    end
 
