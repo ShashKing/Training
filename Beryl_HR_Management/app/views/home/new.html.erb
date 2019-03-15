@@ -1,0 +1,31 @@
+<center><%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
+<%= form.label :first_name %><br>
+<%= form.text_field :first_name%><br><br>
+<%= form.label :last_name %><br>
+<%= form.text_field :last_name%><br><br>
+<%= form.label :email %><br>
+<%= form.text_field :email%><br><br>
+ <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
+
+
+ <div class="field">
+    <%= form.label :password %>
+    
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= form.password_field :password, autocomplete: "new-password" %>
+  </div>
+<br>
+  <div class="field">
+    <%= form.label :password_confirmation %><br />
+    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+<br>
+<%= form.select :role_id, options_from_collection_for_select(Role.all, :id, :name), {prompt: 'Select Role', required: true} %>
+<br><br>
+
+<%= form.submit "Submit Your Details"%>
+
+<% end %>
+</center>
