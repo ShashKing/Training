@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_084108) do
+ActiveRecord::Schema.define(version: 2019_03_15_120224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2019_03_15_084108) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "address"
     t.date "dob"
     t.bigint "role_id"
     t.index ["email"], name: "index_employees_on_email", unique: true
