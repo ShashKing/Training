@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_051056) do
+ActiveRecord::Schema.define(version: 2019_03_18_063447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,17 @@ ActiveRecord::Schema.define(version: 2019_03_18_051056) do
     t.bigint "role_id"
     t.string "current_address"
     t.string "permanent_address"
+    t.bigint "gender_id"
     t.index ["email"], name: "index_employees_on_email", unique: true
+    t.index ["gender_id"], name: "index_employees_on_gender_id"
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_employees_on_role_id"
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "roles", force: :cascade do |t|

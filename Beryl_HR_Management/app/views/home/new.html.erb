@@ -7,6 +7,9 @@
 <%= form.text_field :email%><br><br>
  <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
 
+<%= form.select :gender_id, options_from_collection_for_select(Gender.all, :id, :name), {prompt: 'Select Gender', required: true} %>
+<br><br>
+
 <%= form.label :permanent_address %><br>
 <%= form.text_field :permanent_address%><br><br>
 <%= form.label :current_address %><br>

@@ -15,6 +15,7 @@ class HomeController < ApplicationController
 
   def show
   	@employee = Employee.find(params[:id])
+  	
   end
 
   def edit
@@ -29,7 +30,7 @@ class HomeController < ApplicationController
   end
 
   def employee_params
-  params.require(:employee).permit(:first_name,:last_name,:role_id,:email,:password,:permanent_address,:current_address)
+  params.require(:employee).permit(:first_name, :last_name, :role_id, :email, :password, :permanent_address, :current_address, :gender_id)
   end
 
 
