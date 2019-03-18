@@ -29,7 +29,9 @@ class HomeController < ApplicationController
   end
 
   def employee_params
-  params.require(:employee).permit(:first_name,:last_name,:role_id,:email,:password)
+  params.require(:employee).permit(:first_name,:last_name,:role_id,:email,:password,:permanent_address,:current_address)
   end
+
+
 
 end
