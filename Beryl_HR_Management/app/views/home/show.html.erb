@@ -1,13 +1,27 @@
+<%= @employee.employee_code %><br>
 <%= @employee.first_name %> <%= @employee.last_name%><br>
 <%= @employee.gender.name if @employee.gender.present? %><br>
 <%= @employee.email %><br>
 <%= @employee.role.name %><br>
 <%= @employee.designation.name if @employee.designation.present? %><br>
-<%= @employee.permanent_address %><br>
-<%= @employee.current_address %><br>
+<%= @employee.addresses.last.ad_name if @employee.addresses.present?%><br>
 <%= @employee.dob %><br>
+<%= @employee.current_salary %><br>
+<%= @employee.department.name if @employee.department.present? %><br><br>   
 
-<%= @employee.department.name if @employee.department.present? %><br>
+<% if current_employee.role.name == "HR"%>
+<%= link_to 'Update Your Value',"/home/#{@employee.id}/edit" %><br><br>
+<%= link_to 'back', "/"%>
+<% end %>
 
-<%= link_to 'Update Your Value',"/home/#{@employee.id}/edit" %><br>
-<%= link_to 'Delete this record',@employees, method: :delete, data: {confirm: 'Are You Sure?'} %>
+<% if current_employee.role.name == "MD"%>
+<%= link_to 'Update Your Value',"/home/#{@employee.id}/edit" %><br><br>
+<%= link_to 'Delete this record',@employees, method: :delete, data: {confirm: 'Are You Sure?'} %><br><br>
+<%= link_to 'back', "/"%>
+<% end %>
+
+
+
+
+
+

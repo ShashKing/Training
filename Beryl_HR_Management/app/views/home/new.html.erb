@@ -1,44 +1,58 @@
 <center>
 <h2>Enter Details</h2>
 <%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
+
+<%= form.label :employee_code, "Employee Code" %><br>
+<%= form.text_field :employee_code%><br><br>
+
 <%= form.label :first_name %><br>
 <%= form.text_field :first_name%><br><br>
+
 <%= form.label :last_name %><br>
 <%= form.text_field :last_name%><br><br>
+
 <%= form.label :email %><br>
 <%= form.text_field :email%><br><br>
+
  <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
 
 <%= form.select :gender_id, options_from_collection_for_select(Gender.all, :id, :name), {prompt: 'Select Gender', required: true} %>
 <br><br>
+
 <%= form.label :dob, "Date of Birth"%><br>
 <%= form.date_field :dob%><br><br>
-<%= form.label :permanent_address %><br>
+
+<%= form.label :permanent_address, "Permanent Address"%><br>
 <%= form.text_field :permanent_address%><br><br>
-<%= form.label :current_address %><br>
-<%= form.text_field :current_address%><br><br>
+
+<%= form.fields_for :addresses do |address| %>
+      <div>
+        <%= address.label :ad_name, "Current Address" %><br>
+        <%= address.text_field :ad_name %>
+      </div>
+<% end %><br>
 
 <%= form.select :role_id, options_from_collection_for_select(Role.all, :id, :name), {prompt: 'Select Role', required: true} %>
 <br><br>
 
 <%= form.select :designation_id, options_from_collection_for_select(Designation.all, :id, :name), {prompt: 'Select Designation', required: true} %>
 <br><br>
+
 <%= form.select :department_id, options_from_collection_for_select(Department.all, :id, :name), {prompt: 'Select Department', required: true} %>
 <br><br>
+
+<%= form.label :current_salary, "Current Salary" %><br>
+<%= form.text_field :current_salary%><br><br>
+
 <div class="field">
     <%= form.label :password %>
-    
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= form.password_field :password, autocomplete: "new-password" %>
   </div>
 <br>
-  <div class="field">
-    <%= form.label :password_confirmation %><br />
-    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-<br>
+  
 <%= form.submit "Submit Your Details"%>
 
 <% end %>

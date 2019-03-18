@@ -5,6 +5,7 @@ class HomeController < ApplicationController
 
   def new
   	@employee = Employee.new
+  	@employee.addresses.new
 
   end
 
@@ -21,11 +22,14 @@ class HomeController < ApplicationController
 
   def edit
     @employee = Employee.find(params[:id])
+    @employee.addresses.update(params[:id])
   end
 
   def update
+ 
     @employee = Employee.find(params[:id])
   	@employee.update(employee_params)
+  	@employee.update(addresses_attributes:[:ad_name => 'Delhi'])
 
     redirect_to "/"
   end
@@ -42,7 +46,7 @@ class HomeController < ApplicationController
   end
 
   def employee_params
-  params.require(:employee).permit(:first_name, :last_name, :role_id, :email, :password, :permanent_address, :current_address, :gender_id, :designation_id, :department_id, :dob,:employee_code,:current_salary)
+  params.require(:employee).permit(:first_name, :last_name, :role_id, :email, :password, :permanent_address, :current_address, :gender_id, :designation_id, :department_id, :dob,:employee_code,:current_salary,addresses_attributes: [:ad_name])
   end
 
 

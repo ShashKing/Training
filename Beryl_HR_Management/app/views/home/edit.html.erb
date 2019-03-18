@@ -1,2 +1,42 @@
-<h1>Home#edit</h1>
-<p>Find me in app/views/home/edit.html.erb</p>
+<center>
+
+	<h2>Hello <%= @employee.first_name%> <%= @employee.last_name%><br>
+	Your Employee Code is <%= @employee.employee_code%></h2>
+<h3>Update Details</h3>
+<%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
+
+ <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
+
+
+<%= form.fields_for :address do |ff| %>
+  <div>
+    <%= ff.label :ad_name, "Address" %><br>
+    <%= ff.text_field :ad_name %>
+  </div>
+<% end %>
+<br>
+
+<%= form.select :designation_id, options_from_collection_for_select(Designation.all, :id, :name), {prompt: 'Select Designation', required: true} %>
+<br><br>
+<%= form.select :department_id, options_from_collection_for_select(Department.all, :id, :name), {prompt: 'Select Department', required: true} %>
+<br><br>
+<%= form.label :current_salary, "Current Salary" %><br>
+<%= form.text_field :current_salary%><br><br>
+
+<div class="field">
+    <%= form.label :password %>
+    
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= form.password_field :password, autocomplete: "new-password" %>
+  </div>
+<br>
+<br>
+<%= form.submit "Submit Your Details"%>
+
+<% end %>
+<br>
+<%= link_to "back", "/home/#{@employee.id}/show"%><br>
+<%= link_to "View All", "/"%>
+</center>

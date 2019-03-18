@@ -1,0 +1,5 @@
+class AddForeignKeyInAddress < ActiveRecord::Migration[5.2]
+  def change
+  	add_reference :addresses, :employees, foreign_key:true
+  end
+end

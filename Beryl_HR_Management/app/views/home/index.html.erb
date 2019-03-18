@@ -1,7 +1,14 @@
 <% if employee_signed_in?%>
 <h3>
 Hello
-<%= current_employee.first_name %> <%= current_employee.last_name %>
+
+
+
+
+<%= link_to current_employee.first_name,"home/#{current_employee.id}" %> <%= link_to current_employee.last_name ,"home/#{current_employee.id}" %><br>
+Your Employee Code is <%= current_employee.employee_code%>
+
+
 </h3>
 
 <br>
