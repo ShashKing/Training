@@ -1,6 +1,13 @@
 <%= @employee.first_name %> <%= @employee.last_name%><br>
-<%= @employee.gender.name%><br>
-<%= @employee.email%><br>
-<%= @employee.role.name%><br>
-<%= @employee.permanent_address%><br>
-<%= @employee.current_address%>
+<%= @employee.gender.name if @employee.gender.present? %><br>
+<%= @employee.email %><br>
+<%= @employee.role.name %><br>
+<%= @employee.designation.name if @employee.designation.present? %><br>
+<%= @employee.permanent_address %><br>
+<%= @employee.current_address %><br>
+<%= @employee.dob %><br>
+
+<%= @employee.department.name if @employee.department.present? %><br>
+
+<%= link_to 'Update Your Value',"/home/#{@employee.id}/edit" %><br>
+<%= link_to 'Delete this record',@employees, method: :delete, data: {confirm: 'Are You Sure?'} %>

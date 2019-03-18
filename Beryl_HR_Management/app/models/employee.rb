@@ -5,5 +5,7 @@ class Employee < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          belongs_to :role
- 			   belongs_to :gender     
+ 			   belongs_to :gender 
+ 			   belongs_to :designation
+ 			   belongs_to :department
 end

@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_063447) do
+ActiveRecord::Schema.define(version: 2019_03_18_084914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "designations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employee_designations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,6 +47,10 @@ ActiveRecord::Schema.define(version: 2019_03_18_063447) do
     t.string "current_address"
     t.string "permanent_address"
     t.bigint "gender_id"
+    t.bigint "designation_id"
+    t.bigint "department_id"
+    t.index ["department_id"], name: "index_employees_on_department_id"
+    t.index ["designation_id"], name: "index_employees_on_designation_id"
     t.index ["email"], name: "index_employees_on_email", unique: true
     t.index ["gender_id"], name: "index_employees_on_gender_id"
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
@@ -62,5 +83,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_063447) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "employees", "departments"
+  add_foreign_key "employees", "designations"
   add_foreign_key "employees", "roles"
 end
