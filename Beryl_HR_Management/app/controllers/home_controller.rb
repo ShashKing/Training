@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-  	@employees = Employee.all
+  	employees = Employee.all
+  	@employees = employees.order(first_name: :asc)
   end
 
   def new
@@ -22,11 +23,11 @@ class HomeController < ApplicationController
 
   def edit
     @employee = Employee.find(params[:id])
-    @employee.addresses.update(params[:id])
+    
   end
 
   def update
- 
+ 		#debugger
     @employee = Employee.find(params[:id])
   	@employee.update(employee_params)
   	@employee.update(addresses_attributes:[:ad_name => 'Delhi'])

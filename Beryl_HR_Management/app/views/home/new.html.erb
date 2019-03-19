@@ -3,16 +3,16 @@
 <%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
 
 <%= form.label :employee_code, "Employee Code" %><br>
-<%= form.text_field :employee_code%><br><br>
+<%= form.text_field :employee_code, name:"employee_code" %><br><br>
 
 <%= form.label :first_name %><br>
-<%= form.text_field :first_name%><br><br>
+<%= form.text_field :first_name, name:"first_name"%><br><br>
 
 <%= form.label :last_name %><br>
-<%= form.text_field :last_name%><br><br>
+<%= form.text_field :last_name, name:"last_name" %><br><br>
 
 <%= form.label :email %><br>
-<%= form.text_field :email%><br><br>
+<%= form.text_field :email, name:"email"%><br><br>
 
  <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
 
@@ -20,15 +20,15 @@
 <br><br>
 
 <%= form.label :dob, "Date of Birth"%><br>
-<%= form.date_field :dob%><br><br>
+<%= form.date_field :dob, name:"dob"%><br><br>
 
 <%= form.label :permanent_address, "Permanent Address"%><br>
-<%= form.text_field :permanent_address%><br><br>
+<%= form.text_field :permanent_address, name:"permanent_address"%><br><br>
 
 <%= form.fields_for :addresses do |address| %>
       <div>
         <%= address.label :ad_name, "Current Address" %><br>
-        <%= address.text_field :ad_name %>
+        <%= address.text_field :ad_name, name:"ad_name"%>
       </div>
 <% end %><br>
 
@@ -42,14 +42,14 @@
 <br><br>
 
 <%= form.label :current_salary, "Current Salary" %><br>
-<%= form.text_field :current_salary%><br><br>
+<%= form.text_field :current_salary, name:"current_salary"%><br><br>
 
 <div class="field">
     <%= form.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= form.password_field :password, autocomplete: "new-password" %>
+    <%= form.password_field :password, name:"password",autocomplete: "new-password" %>
   </div>
 <br>
   
@@ -57,3 +57,49 @@
 
 <% end %>
 </center>
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script type="text/javascript">
+	$("#submit").validate({
+		rules:{
+			first_name:{
+				required:true,
+				minlength:2,
+				maxlength:30
+			},
+			last_name:{
+				required:true,
+				minlength:2,
+				maxlength:30
+			},
+			employee_code:{
+				number:true,
+				required:true,
+				minlength:3,
+				maxlength:4
+			},
+			email:{
+				required:true
+			},
+			password:{
+				required:true,
+				minlength:6,
+				maxlength:15
+			},
+			current_salary:{
+				required:true,
+				number:true,
+				minlength:4,
+				maxlength:8
+			},
+			permanent_address:{
+				required:true,
+			},
+			ad_name:{
+				required:true
+			}
+		}
+	});
+</script>>
