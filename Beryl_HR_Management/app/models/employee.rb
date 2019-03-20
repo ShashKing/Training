@@ -10,7 +10,7 @@ class Employee < ApplicationRecord
  			   belongs_to :department
  			   has_many :addresses, dependent: :delete_all
  			   accepts_nested_attributes_for :addresses
-
+ 			   	#validates :first_name, :last_name, :employee_code, :current_salary, :email, :permanent_address, :dob, presence: true
 
  			    
 end

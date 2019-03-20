@@ -11,7 +11,7 @@ class HomeController < ApplicationController
   end
 
   def create
-  
+   
   	@employee = Employee.create(employee_params)
   	redirect_to "/home#index"
     end
