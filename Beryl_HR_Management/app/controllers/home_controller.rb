@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
   	employees = Employee.all
-  	@employees = employees.order(first_name: :asc)
+    @employees = employees.order(first_name: :asc)
   end
 
   def new
@@ -11,9 +11,14 @@ class HomeController < ApplicationController
   end
 
   def create
-  
+    
   	@employee = Employee.create(employee_params)
-  	redirect_to "/home#index"
+    if @employee.save 
+      EmployeeMailer.signup_confirmation(@employee).deliver_now
+      redirect_to '/', notice: "Employee Signed up successfully"
+    else
+      render :new
+    end
     end
 
   def show
@@ -23,16 +28,16 @@ class HomeController < ApplicationController
 
   def edit
     @employee = Employee.find(params[:id])
-    
+    #@employee.addresses.update(params[:id])
   end
 
   def update
- 		#debugger
+     # debugger
     @employee = Employee.find(params[:id])
   	@employee.update(employee_params)
-  	@employee.update(addresses_attributes:[:ad_name => 'Delhi'])
+  	#@employee.update(addresses_attributes:[:ad_name => 'Delhi'])
 
-    redirect_to "/"
+    render :show
   end
 
   def delete
@@ -46,8 +51,9 @@ class HomeController < ApplicationController
   	redirect_to "/"
   end
 
+  private
   def employee_params
-  params.require(:employee).permit(:first_name, :last_name, :role_id, :email, :password, :permanent_address, :current_address, :gender_id, :designation_id, :department_id, :dob,:employee_code,:current_salary,addresses_attributes: [:ad_name])
+    params.require(:employee).permit(:first_name, :last_name, :role_id, :email, :password, :permanent_address, :current_address, :gender_id, :designation_id, :department_id, :dob,:employee_code,:current_salary, addresses_attributes: [:id,:ad_name])
   end
 
 

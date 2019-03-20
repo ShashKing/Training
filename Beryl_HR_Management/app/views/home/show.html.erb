@@ -1,21 +1,21 @@
-<%= @employee.employee_code %><br>
-<%= @employee.first_name %> <%= @employee.last_name%><br>
-<%= @employee.gender.name if @employee.gender.present? %><br>
-<%= @employee.email %><br>
-<%= @employee.role.name %><br>
-<%= @employee.designation.name if @employee.designation.present? %><br>
-<%= @employee.addresses.last.ad_name if @employee.addresses.present?%><br>
-<%= @employee.dob %><br>
-<%= @employee.current_salary %><br>
-<%= @employee.department.name if @employee.department.present? %><br><br>   
-
+<h3>Employee Code:</h3><%= @employee.employee_code %><br>
+<h3>Name: </h3><%= @employee.first_name %> <%= @employee.last_name%><br>
+<h3>Gender: </h3><%= @employee.gender.name if @employee.gender.present? %><br>
+<h3>Email: </h3><%= @employee.email %><br>
+<h3>Role: </h3><%= @employee.role.name %><br>
+<h3>Designation: </h3><%= @employee.designation.name if @employee.designation.present? %><br>
+<h3>Permanent Address: </h3><%= @employee.permanent_address%><br>
+<h3>Current Address: </h3><%= @employee.addresses.last.ad_name if @employee.addresses.present?%><br>
+<h3>Date of Birth: </h3><%= @employee.dob %><br>
+<h3>Salary: </h3><%= @employee.current_salary %><br>
+<h3>Department: </h3><%= @employee.department.name if @employee.department.present? %><br><br>   
 <% if current_employee.role.name == "HR"%>
-<%= link_to 'Update Your Value',"/home/#{@employee.id}/edit" %><br><br>
+<%= link_to 'Update this Value',"/home/#{@employee.id}/edit" %><br><br>
 <%= link_to 'back', "/"%>
 <% end %>
 
 <% if current_employee.role.name == "MD"%>
-<%= link_to 'Update Your Value',"/home/#{@employee.id}/edit" %><br><br>
+<%= link_to 'Update this Value',"/home/#{@employee.id}/edit" %><br><br>
 <%= link_to 'Delete this record',@employees, method: :delete, data: {confirm: 'Are You Sure?'} %><br><br>
 <%= link_to 'back', "/"%>
 <% end %>

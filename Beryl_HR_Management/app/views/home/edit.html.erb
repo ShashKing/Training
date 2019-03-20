@@ -7,8 +7,7 @@
 
  <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
 
-
-<%= form.fields_for :address do |ff| %>
+<%= form.fields_for :addresses do |ff| %>
   <div>
     <%= ff.label :ad_name, "Address" %><br>
     <%= ff.text_field :ad_name %>
@@ -23,14 +22,7 @@
 <%= form.label :current_salary, "Current Salary" %><br>
 <%= form.text_field :current_salary%><br><br>
 
-<div class="field">
-    <%= form.label :password %>
-    
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= form.password_field :password, autocomplete: "new-password" %>
-  </div>
+
 <br>
 <br>
 <%= form.submit "Submit Your Details"%>

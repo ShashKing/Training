@@ -31,8 +31,6 @@ Your Employee Code is <%= current_employee.employee_code%>
 <% end %>
 
 <% end %>
-
-
 <% if !employee_signed_in?%>
 	Login Again<br>
 	<%= link_to "Login ", new_employee_session_path%>
