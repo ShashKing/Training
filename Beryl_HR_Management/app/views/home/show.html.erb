@@ -8,7 +8,6 @@
 <%= @employee.dob %><br>
 <%= @employee.current_salary %><br>
 <%= @employee.department.name if @employee.department.present? %><br><br>   
-
 <% if current_employee.role.name == "HR"%>
 <%= link_to 'Update Your Value',"/home/#{@employee.id}/edit" %><br><br>
 <%= link_to 'back', "/"%>

@@ -8,6 +8,9 @@ class Employee < ApplicationRecord
  			   belongs_to :gender 
  			   belongs_to :designation
  			   belongs_to :department
- 			   has_many :addresses
+ 			   has_many :addresses, dependent: :delete_all
  			   accepts_nested_attributes_for :addresses
+
+
+ 			    
 end

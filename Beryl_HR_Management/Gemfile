@@ -18,6 +18,8 @@ gem 'jquery-rails'
 
 gem 'hirb'
 
+gem "nested_form"
+
 gem 'awesome_print'
 
 # Use SCSS for stylesheets
