@@ -15,7 +15,7 @@
 <h3>Date of Birth: </h3><%= @employee.dob %><br>
 <h3>Salary: </h3><%= @employee.current_salary %><br>
 
-<h3>Skills :</h3><%= @employee.skills.map(&:name)%><br>
+<h3>Skills :</h3><%= @employee.skills.map(&:name).join(", ")%><br>
 
 <h3>Department: </h3><%= @employee.department.name if @employee.department.present? %><br><br>   
 
