@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_112259) do
+ActiveRecord::Schema.define(version: 2019_03_22_085535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2019_03_18_112259) do
     t.index ["role_id"], name: "index_employees_on_role_id"
   end
 
+  create_table "employees_skills", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "skill_id"
+    t.bigint "employee_id"
+    t.index ["employee_id"], name: "index_employees_skills_on_employee_id"
+    t.index ["skill_id"], name: "index_employees_skills_on_skill_id"
+  end
+
   create_table "genders", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -77,6 +86,12 @@ ActiveRecord::Schema.define(version: 2019_03_18_112259) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
@@ -97,4 +112,6 @@ ActiveRecord::Schema.define(version: 2019_03_18_112259) do
   add_foreign_key "employees", "departments"
   add_foreign_key "employees", "designations"
   add_foreign_key "employees", "roles"
+  add_foreign_key "employees_skills", "employees"
+  add_foreign_key "employees_skills", "skills"
 end

@@ -1,49 +1,85 @@
 <center>
+	<div>
 <h2>Enter Details</h2>
 <%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
 
+<div>
 <%= form.label :employee_code, "Employee Code" %><br>
-<%= form.text_field :employee_code%><br><br>
+<%= form.text_field :employee_code %><br><br>
+</div>
 
+<div>
 <%= form.label :first_name %><br>
-<%= form.text_field :first_name%><br><br>
+<%= form.text_field :first_name %><br><br>
+</div>
 
+<div>
 <%= form.label :last_name %><br>
 <%= form.text_field :last_name%><br><br>
+</div>
 
+<div>
 <%= form.label :email %><br>
 <%= form.text_field :email%><br><br>
+</div>
 
  <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
 
+<div>
 <%= form.select :gender_id, options_from_collection_for_select(Gender.all, :id, :name), {prompt: 'Select Gender', required: true} %>
 <br><br>
+</div>
 
+<div>
 <%= form.label :dob, "Date of Birth"%><br>
 <%= form.date_field :dob%><br><br>
+</div>
 
+<div>
 <%= form.label :permanent_address, "Permanent Address"%><br>
 <%= form.text_field :permanent_address%><br><br>
+<!-- <%#= form.text_area :permanent_address, size: "30x10" %><br><br> -->
+</div>
 
+<div>
 <%= form.fields_for :addresses do |address| %>
   <div>
     <%= address.label :ad_name, "Current Address" %><br>
     <%= address.text_field :ad_name %>
   </div>
 <% end %><br>
+</div>
 
+<div>
 <%= form.select :role_id, options_from_collection_for_select(Role.all, :id, :name), {prompt: 'Select Role', required: true} %>
 <br><br>
+</div>
 
+<div>
 <%= form.select :designation_id, options_from_collection_for_select(Designation.all, :id, :name), {prompt: 'Select Designation', required: true} %>
 <br><br>
+</div>
 
+<div>
 <%= form.select :department_id, options_from_collection_for_select(Department.all, :id, :name), {prompt: 'Select Department', required: true} %>
 <br><br>
+</div>
 
+<div>
 <%= form.label :current_salary, "Current Salary" %><br>
 <%= form.text_field :current_salary%><br><br>
+</div>
 
+<div class="field">
+  <%= form.label "Skills" %><br />
+  <%= form.collection_check_boxes :skill_ids, Skill.all, :id, :name do |b| %>
+    
+      <%= b.check_box %>
+      <%= b.label %>
+    
+  <% end %>
+</div>
+<br>
 <div class="field">
   <%= form.label :password %>
   <% if @minimum_password_length %>
@@ -54,6 +90,11 @@
 <br>
   
 <%= form.submit "Submit Your Details"%>
-
 <% end %>
+<br>
+<div>
+<%= link_to 'back', "/"%>
+</div>
+
+</div>
 </center>

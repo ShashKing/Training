@@ -4,6 +4,7 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+         has_and_belongs_to_many :skills
          belongs_to :role
  			   belongs_to :gender 
  			   belongs_to :designation
@@ -12,5 +13,5 @@ class Employee < ApplicationRecord
  			   accepts_nested_attributes_for :addresses
  			   	#validates :first_name, :last_name, :employee_code, :current_salary, :email, :permanent_address, :dob, presence: true
 
- 			    
+ 			     
 end
