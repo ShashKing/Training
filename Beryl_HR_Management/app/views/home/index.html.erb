@@ -14,7 +14,7 @@ Your Employee Code is <%= current_employee.employee_code%>
 <br>
 
 <% if current_employee.role.name == "HR"%>
-<h3><%= link_to "add new record of employee", '/home/new'%><br></h3><br>
+<h3><%= link_to "add new record of employee", new_home_url(@employee) %><br></h3><br>
 <h3>Records</h3>
 <% @employees.each do |employee|%>
 <%= link_to employee.first_name,"home/#{employee.id}" %> <%= link_to employee.last_name ,"home/#{employee.id}" %><br>
@@ -23,7 +23,7 @@ Your Employee Code is <%= current_employee.employee_code%>
 
 
 <% if current_employee.role.name == "MD"%>
-<h3><%= link_to "add new record of employee", '/home/new'%><br></h3><br><br>
+<h3><%= link_to "add new record of employee", new_home_url(@employee) %><br></h3><br><br>
 <h3>Record of Employees</h3>
 <% @employees.each do |employee|%>
 <%= link_to employee.first_name ,"home/#{employee.id}" %> <%= link_to employee.last_name ,"home/#{employee.id}" %><br>

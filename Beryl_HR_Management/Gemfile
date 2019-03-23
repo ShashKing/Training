@@ -20,6 +20,8 @@ gem 'hirb'
 
 gem 'carrierwave'
 
+
+
 gem 'awesome_print'
 
 # Use SCSS for stylesheets
