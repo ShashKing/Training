@@ -1,42 +1,37 @@
 <center>
+	<h2>
+    Hello <%= @employee.first_name%> <%= @employee.last_name%><br>
+	  Your Employee Code is <%= @employee.employee_code%></h2>
+  <h3>Update Details</h3>
+  <%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
 
-	<h2>Hello <%= @employee.first_name%> <%= @employee.last_name%><br>
-	Your Employee Code is <%= @employee.employee_code%></h2>
-<h3>Update Details</h3>
-<%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
+     <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
 
- <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
+    <%= form.fields_for :addresses do |ff| %>
+      <div>
+        <%= ff.label :ad_name, "Address" %><br>
+        <%= ff.text_field :ad_name %>
+      </div>
+    <% end %>
+    <br>
 
-<%= form.fields_for :addresses do |ff| %>
-  <div>
-    <%= ff.label :ad_name, "Address" %><br>
-    <%= ff.text_field :ad_name %>
-  </div>
-<% end %>
-<br>
-
-<%= form.select :designation_id, options_from_collection_for_select(Designation.all, :id, :name), {prompt: 'Select Designation', required: true} %>
-<br><br>
-<%= form.select :department_id, options_from_collection_for_select(Department.all, :id, :name), {prompt: 'Select Department', required: true} %>
-<br><br>
-<%= form.label :current_salary, "Current Salary" %><br>
-<%= form.text_field :current_salary%><br><br>
-<div class="field">
-  <%= form.label "Skills" %><br />
-  <%= form.collection_check_boxes :skill_ids, Skill.all, :id, :name do |b| %>
-    
-      <%= b.check_box %>
-      <%= b.label %>
-    
+    <%= form.select :designation_id, options_from_collection_for_select(Designation.all, :id, :name), {prompt: 'Select Designation', required: true} %>
+    <br><br>
+    <%= form.select :department_id, options_from_collection_for_select(Department.all, :id, :name), {prompt: 'Select Department', required: true} %>
+    <br><br>
+    <%= form.label :current_salary, "Current Salary" %><br>
+    <%= form.text_field :current_salary%><br><br>
+    <div class="field">
+      <%= form.label "Skills" %><br />
+      <%= form.collection_check_boxes :skill_ids, Skill.all, :id, :name do |b| %>   
+        <%= b.check_box %>
+        <%= b.label %>   
+      <% end %>
+    </div>
+    <br><br>
+    <%= form.submit "Submit Your Details"%>
   <% end %>
-</div>
-
-<br>
-<br>
-<%= form.submit "Submit Your Details"%>
-
-<% end %>
-<br>
-<%= link_to "back", "/home/#{@employee.id}/show"%><br>
-<%= link_to "View All", "/"%>
+  <br>
+  <%= link_to "back", "/home/#{@employee.id}/show"%><br>
+  <%= link_to "View All", "/"%>
 </center>

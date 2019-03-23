@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-  	employees = Employee.all
-    @employees = employees.order(first_name: :asc)
+  	@employees = Employee.all.order(first_name: :asc).paginate(page: params[:page], per_page: 5)
+  
   end
 
   def new
@@ -18,7 +18,7 @@ class HomeController < ApplicationController
     else
       render :new
     end
-    end
+  end
 
   def show
   	@employee = Employee.find(params[:id])

@@ -1,38 +1,32 @@
 <% if employee_signed_in?%>
-<h3>
-Hello
+	<h3>
+		Hello
+		<%= link_to current_employee.first_name,"home/#{current_employee.id}" %> <%= link_to current_employee.last_name ,"home/#{current_employee.id}" %><br>
+			Your Employee Code is <%= current_employee.employee_code%>
+	</h3>
+	<br>
+	<% if current_employee.role.name == "HR"%>
+		<h3>
+			<%= link_to "add new record of employee", new_home_url(@employee) %><br>
+		</h3><br>
+		<h3>Records</h3>
+		<% @employees.each do |employee|%>
+			<%= link_to employee.first_name,"home/#{employee.id}" %> <%= link_to employee.last_name ,"home/#{employee.id}" %><br>
+		<% end %>
+	<% end %>
 
-
-
-
-<%= link_to current_employee.first_name,"home/#{current_employee.id}" %> <%= link_to current_employee.last_name ,"home/#{current_employee.id}" %><br>
-Your Employee Code is <%= current_employee.employee_code%>
-
-
-</h3>
-
-<br>
-
-<% if current_employee.role.name == "HR"%>
-<h3><%= link_to "add new record of employee", new_home_url(@employee) %><br></h3><br>
-<h3>Records</h3>
-<% @employees.each do |employee|%>
-<%= link_to employee.first_name,"home/#{employee.id}" %> <%= link_to employee.last_name ,"home/#{employee.id}" %><br>
-<% end %>
-<% end %>
-
-
-<% if current_employee.role.name == "MD"%>
-<h3><%= link_to "add new record of employee", new_home_url(@employee) %><br></h3><br><br>
-<h3>Record of Employees</h3>
-<% @employees.each do |employee|%>
-<%= link_to employee.first_name ,"home/#{employee.id}" %> <%= link_to employee.last_name ,"home/#{employee.id}" %><br>
-<% end %>
-<% end %>
-
+	<% if current_employee.role.name == "MD"%>
+		<h3>
+			<%= link_to "add new record of employee", new_home_url(@employee) %><br>
+			</h3><br><br>
+		<h3>Record of Employees</h3>
+		<% @employees.each do |employee|%>
+			<%= link_to employee.first_name ,"home/#{employee.id}" %> <%= link_to employee.last_name ,"home/#{employee.id}" %><br>
+		<% end %>
+	<% end %>
 <% end %>
 <% if !employee_signed_in?%>
 	Login Again<br>
-	<%= link_to "Login ", new_employee_session_path%>
-     
-<% end %>
+	<%= link_to "Login ", new_employee_session_path%>   
+<% end %><br>
+<%= will_paginate @employees %>
