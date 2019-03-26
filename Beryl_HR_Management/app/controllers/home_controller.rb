@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@employees = Employee.all.order(first_name: :asc).paginate(page: params[:page], per_page: 5)
+  	@employees = Employee.all.search(params[:search]).order(first_name: :asc).paginate(page: params[:page], per_page: 5)
   
   end
 
@@ -30,7 +30,7 @@ class HomeController < ApplicationController
   end
 
   def update
-     # debugger
+      debugger
     @employee = Employee.find(params[:id])
   	@employee.update(employee_params)
   	#@employee.update(addresses_attributes:[:ad_name => 'Delhi'])
