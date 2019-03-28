@@ -2,10 +2,12 @@
 	<h2>
     Hello <%= @employee.first_name%> <%= @employee.last_name%><br>
 	  Your Employee Code is <%= @employee.employee_code%></h2>
-  <h3>Update Details</h3>
+  <h3>
+    Update Details
+  </h3>
   <%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
 
-     <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
+    <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
 
     <%= form.fields_for :addresses do |ff| %>
       <div>
@@ -14,7 +16,6 @@
       </div>
     <% end %>
     <br>
-
     <%= form.select :designation_id, options_from_collection_for_select(Designation.all, :id, :name), {prompt: 'Select Designation', required: true} %>
     <br><br>
     <%= form.select :department_id, options_from_collection_for_select(Department.all, :id, :name), {prompt: 'Select Department', required: true} %>

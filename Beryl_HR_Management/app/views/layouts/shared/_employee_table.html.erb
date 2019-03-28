@@ -1,0 +1,33 @@
+<h3>
+	<%= link_to "add new record of employee", new_home_url(@employee) %><br>
+</h3><br>
+<%#= form_tag home_index_url, :method => 'get' do %>
+  <!-- <p> -->
+    <%#= text_field_tag :search, params[:search] %>
+  	<%#= submit_tag "Search", :first_name => nil %>
+    		
+ 	<!-- </p> -->
+<%# end %>
+<h3>Records of Employees</h3>
+<table class="responsive no-wrap" id="employees">
+	<thead>
+		<th>
+			<%= sortable "first_name"%>
+		</th>
+		<th>
+			<%= sortable "employee_code"%>
+		</th>
+	</thead>
+	<tbody>
+		<% @employees.each do |employee| %>
+			<tr>
+				<td>
+					<%= link_to employee.first_name,"home/#{employee.id}" %> <br>
+				</td>
+				<td>
+					<%= link_to employee.employee_code,"home/#{employee.id}" %> <br>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

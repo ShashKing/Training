@@ -1,88 +1,29 @@
-<% if employee_signed_in?%>
-	<h3>
-		Hello
-		<%= link_to current_employee.first_name,"home/#{current_employee.id}" %> <%= link_to current_employee.last_name ,"home/#{current_employee.id}" %><br>
-			Your Employee Code is <%= current_employee.employee_code%>
-	</h3>
-	<br>
-	<% if current_employee.role.name == "HR"%>
+<center>
+	<% if employee_signed_in?%>
 		<h3>
-			<%= link_to "add new record of employee", new_home_url(@employee) %><br>
-		</h3><br>
-		<%= form_tag home_index_url, :method => 'get' do %>
-  		<p>
-    		<%= text_field_tag :search, params[:search] %>
-    		<%= submit_tag "Search", :first_name => nil %>
-    		
-  		</p>
-	<% end %>
-		<h3>Records of Employees</h3>
-		<% @employees.each do |employee|%>
-		<table id="employees">
-			<tr>
-				<th>
-					<%= sortable "first_name"%>
-				</th>
-				<th>
-					<%= sortable "employee_code"%>
-				</th>
-			</tr>
-			<tr>
-				<td>
-					<%= link_to employee.first_name,"home/#{employee.id}" %> <br>
-				</td>
-				<td>
-					<%= link_to employee.employee_code,"home/#{employee.id}" %> <br>
-				</td>
-			</tr>
-		
-			
+			Hello
+			<%= link_to current_employee.first_name,"home/#{current_employee.id}" %> <%= link_to current_employee.last_name ,"home/#{current_employee.id}" %><br>
+				Your Employee Code is <%= current_employee.employee_code%>
+		</h3>
+		<br>
+		<% if current_employee.role.name == "HR"%>
+			<%= render partial: 'layouts/shared/employee_table'%>
 		<% end %>
-		</table>
-	<% end %>
-
-	<% if current_employee.role.name == "MD"%>
-		<h3>
-			<%= link_to "add new record of employee", new_home_url(@employee) %><br>
-			</h3><br><br>
-		<h3>Record of Employees</h3>
-			<%= form_tag home_index_url, :method => 'get' do %>
-  			<p>
-    			<%= text_field_tag :search, params[:search] %>
-    			<%= submit_tag "Search", :first_name => nil %>
-  			</p>
-  			
+		<% if current_employee.role.name == "MD"%>
+			<%= render partial: 'layouts/shared/employee_table'%>
 		<% end %>
+	<% end %><br>
+	<% if !employee_signed_in?%>
+		Login Again<br>
+		<%= link_to "Login ", new_employee_session_path%>   
+	<% end %><br>
+		<%#= will_paginate @employees %>
+		<%#= link_to "Show All" " "%><br>
+</center>
+<script>
+  $('#employees').DataTable({
+	  responsive: true
+	});
+</script>
 
-		
-			<table id="employees">
-			<tr>
-				<th>
-					<%= sortable "first_name"%>
-				</th>
-				<th>
-					<%= sortable "employee_code"%>
-				</th>
-			</tr>
-			<% @employees.each do |employee|%>
-			<tr>
-				<td>
-					<%= link_to employee.first_name,"home/#{employee.id}" %> <br>
-				</td>
-				<td>
-					<%= link_to employee.employee_code,"home/#{employee.id}" %> <br>
-				</td>
-			</tr>
-		
-			
-		<% end %>
-		</table>
 
-	<% end %>
-<% end %><br>
-<%= link_to "View All" " "%><br>
-<% if !employee_signed_in?%>
-	Login Again<br>
-	<%= link_to "Login ", new_employee_session_path%>   
-<% end %><br>
-<%= will_paginate @employees %>
