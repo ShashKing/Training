@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	@employees = Employee.all.search(params[:search]).order(first_name: :asc).paginate(page: params[:page], per_page: 5)
-  
+  	@employees = Employee.all.search(params[:search]).order(params[:sort]).paginate(page: params[:page], per_page: 7)
   end
 
   def new
@@ -11,6 +10,7 @@ class HomeController < ApplicationController
   end
 
   def create
+
   	@employee = Employee.create(employee_params)
     if @employee.save 
       EmployeeMailer.signup_confirmation(@employee).deliver_now
@@ -30,7 +30,7 @@ class HomeController < ApplicationController
   end
 
   def update
-      debugger
+
     @employee = Employee.find(params[:id])
   	@employee.update(employee_params)
   	#@employee.update(addresses_attributes:[:ad_name => 'Delhi'])

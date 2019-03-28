@@ -1,4 +1,3 @@
-
 <% if employee_signed_in?%>
 	<h3>
 		Hello
@@ -19,8 +18,27 @@
 	<% end %>
 		<h3>Records of Employees</h3>
 		<% @employees.each do |employee|%>
-			<%= link_to employee.first_name,"home/#{employee.id}" %> <%= link_to employee.last_name ,"home/#{employee.id}" %><br>
+		<table id="employees">
+			<tr>
+				<th>
+					<%= sortable "first_name"%>
+				</th>
+				<th>
+					<%= sortable "employee_code"%>
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<%= link_to employee.first_name,"home/#{employee.id}" %> <br>
+				</td>
+				<td>
+					<%= link_to employee.employee_code,"home/#{employee.id}" %> <br>
+				</td>
+			</tr>
+		
+			
 		<% end %>
+		</table>
 	<% end %>
 
 	<% if current_employee.role.name == "MD"%>
@@ -36,10 +54,29 @@
   			
 		<% end %>
 
-		<% @employees.each do |employee|%>
-			<%= link_to employee.first_name ,"home/#{employee.id}" %> <%= link_to employee.last_name ,"home/#{employee.id}" %><br>
-
+		
+			<table id="employees">
+			<tr>
+				<th>
+					<%= sortable "first_name"%>
+				</th>
+				<th>
+					<%= sortable "employee_code"%>
+				</th>
+			</tr>
+			<% @employees.each do |employee|%>
+			<tr>
+				<td>
+					<%= link_to employee.first_name,"home/#{employee.id}" %> <br>
+				</td>
+				<td>
+					<%= link_to employee.employee_code,"home/#{employee.id}" %> <br>
+				</td>
+			</tr>
+		
+			
 		<% end %>
+		</table>
 
 	<% end %>
 <% end %><br>
