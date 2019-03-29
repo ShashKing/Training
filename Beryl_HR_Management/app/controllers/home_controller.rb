@@ -10,13 +10,17 @@ class HomeController < ApplicationController
   def new
   	@employee = Employee.new
   	@employee.addresses.new
+
   end
 
   def create
-  	@employee = Employee.create(employee_params)
+  	@employee = Employee.create(employee_params)    
     if @employee.save 
-      EmployeeMailer.signup_confirmation(@employee).deliver_now
-      redirect_to '/', notice: "Employee Signed up successfully"
+      EmployeeMailer.signup_confirmation(@employee).deliver_later
+      EmployeeJob.perform_later params.permit(:employee)[:employee]
+      respond_to do |format|  
+       format.js { render 'home/show_create_view'}
+      end
     else
       render :new
     end
@@ -34,8 +38,12 @@ class HomeController < ApplicationController
   def update
     @employee = Employee.find(params[:id])
   	@employee.update(employee_params)
+    respond_to do |format|  
+      format.js { render 'home/show_updated_view'}
+    end
   	#@employee.update(addresses_attributes:[:ad_name => 'Delhi'])
-    render :show
+    #render :show
+    
   end
 
   def delete

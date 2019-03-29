@@ -5,7 +5,7 @@
   <h3>
     Update Details
   </h3>
-  <%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
+  <%= form_for @employee ,url: "" ,:html => {:id => "update"}, remote:true do|form|%>
 
     <%#= form.password_field :password,placeholder:"Enter Password"%><!-- <br><br -->
 

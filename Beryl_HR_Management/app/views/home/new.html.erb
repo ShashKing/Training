@@ -1,7 +1,7 @@
 <center>
   <div>
     <h2>Enter Details</h2>
-    <%= form_for @employee ,url: "" ,:html => {:id => "submit"} do|form|%>
+    <%= form_for @employee ,url: "" ,:html => {:id => "submit"}, remote:true do|form|%>
       <div>
         <%= form.label :employee_code, "Employee Code" %><br>
         <%= form.text_field :employee_code %><br><br>
@@ -80,6 +80,9 @@
     </div>
   </div>
 </center>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script>
   $("#submit").validate({
     rules:{

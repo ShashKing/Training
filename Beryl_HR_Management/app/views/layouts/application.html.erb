@@ -7,15 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application',media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= render partial: 'layouts/shared/header'%>   
+    <% if employee_signed_in?%>
+    <button class="button"><%= link_to"Admin Dashbord ", "/admin"%> </button>
+    <% end %>
+    <%= render partial: 'layouts/shared/header'%>
     <%= yield %>
     <% if employee_signed_in?%>
       <br>
       <center>
-        <button class="button"><%= link_to('Logout',destroy_employee_session_path, :method => :delete)%> 
-        </button>
+        <button class="button"><%= link_to('Logout',destroy_employee_session_path, :method => :delete)%> </button>
       </center>
     <% end %>
   </body>

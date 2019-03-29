@@ -5,6 +5,7 @@ class EmployeeMailer < ApplicationMailer
   #
   #   en.employee_mailer.signup_confirmation.subject
   #
+  EMPLOYEE_EMAIL = "hateshashank@gmail.com"
   def signup_confirmation(employee)
     @employee = employee
     mail to: employee.email , subject: "Sign Up Confirmation"

@@ -1,5 +1,6 @@
 <center>
 	<% if employee_signed_in?%>
+	
 		<h3>
 			Hello
 			<%= link_to current_employee.first_name,"home/#{current_employee.id}" %> <%= link_to current_employee.last_name ,"home/#{current_employee.id}" %><br>
@@ -11,6 +12,7 @@
 		<% end %>
 		<% if current_employee.role.name == "MD"%>
 			<%= render partial: 'layouts/shared/employee_table'%>
+
 		<% end %>
 	<% end %><br>
 	<% if !employee_signed_in?%>
