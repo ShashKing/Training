@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @employees = Employee.all.search(params[:search]).order(params[:sort]).paginate(page: params[:page], per_page: 7)
+    @employees = Employee.all#.search(params[:search]).order(params[:sort]).paginate(page: params[:page], per_page: 7)
     respond_to do |format|
       format.html
       format.json { render json: EmployeesDatatable.new(view_context) }

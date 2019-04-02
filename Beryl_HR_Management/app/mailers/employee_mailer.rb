@@ -5,9 +5,10 @@ class EmployeeMailer < ApplicationMailer
   #
   #   en.employee_mailer.signup_confirmation.subject
   #
-  EMPLOYEE_EMAIL = "hateshashank@gmail.com"
+  #EMPLOYEE_EMAIL = "hateshashank@gmail.com"
   def signup_confirmation(employee)
-    @employee = employee
+    @employee = params[:employee]
+    @url = "http://example.com/login"
     mail to: employee.email , subject: "Sign Up Confirmation"
   end
 end
