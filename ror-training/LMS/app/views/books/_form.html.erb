@@ -1,0 +1,19 @@
+<%= form_with scope: :book, url: params[:action] == "new" ? books_path : book_path, local: true do |form| %>
+<p>
+  <%= form.label :Name%>
+  <%= form.text_field :name %>	
+</p>
+<p>
+  <%= form.label 'Subject Name' %>
+  <%= form.text_field :subject %>
+</p>
+<p>
+  <%= form.label 'Author Name'%>
+  <%= form.text_field :author%>
+</p>
+
+<p>
+	<% title = (params[:action] == "new" ? "Save" : "Update") %>
+	<%= form.submit title = title %>
+</p>
+<% end %>
