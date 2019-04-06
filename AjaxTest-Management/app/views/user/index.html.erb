@@ -1,0 +1,80 @@
+<center>
+<div id="form">
+Name:
+<input type="text" name="name" id="name"><br><br>
+Phone:
+<input type="number" name="phone" id="phone"><br><br>
+Gender:
+<input type="radio" name="gender" value="male" id="male" checked > Male
+<input type="radio" name="gender" value="female" id="female"> Female
+<input type="radio" name="gender" value="other" id="other"> Other  <br><br>
+Country:
+<select name="country" id="country">
+  <option value="india">India</option>
+  <option value="japan">Japan</option>
+  <option value="china">China</option>
+  <option value="south-korea">South Korea</option>
+</select><br><br>
+Message:<br>
+<textarea name="message" rows="10" cols="30" id="message"></textarea>
+<br>
+<br>
+<br>
+<br>
+<pre id="pre">Click Here for Request</pre>
+</center>
+</div>
+<script>
+	$(document).ready(function(){
+  $("#pre").hover(function(){
+    $(this).css("background-color", "blue");
+    }, function(){
+    $(this).css("background-color", "white");
+  });
+});
+</script>
+<script>
+	
+
+</script>
+
+<script>
+	$(document).ready(function(){
+		$("#pre").click(function(){
+	$.ajax({
+          url:  "/index",
+          type: "POST",
+          data: { user: { name: "John Smith", phone: "1234567890", message: "Hi There", country: "japan", gender: "female" } 
+        	},
+          dataType: "script",
+         });			
+
+			
+		});
+	});
+</script>
+<!-- <script>
+	$.ajaxSetup({
+  url: "/xmlhttp/",
+  global: false,
+  type: "POST"
+});
+$.ajax({ data: {"name" : "John Smith"} });
+</script> -->
+
+<!-- script>
+	$(document).ready(function(){
+  $('#form').click(function(){
+    
+    
+  });
+});
+</script> -->
+
+<!-- <script>
+	$("#country").on("change",function() {
+            var state = $(this).val();
+            alert(state);
+        });
+</script> -->
+

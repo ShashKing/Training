@@ -1,0 +1,22 @@
+var name = '<%= @name %>';
+var country = '<%= @country %>';
+var phone = '<%= @phone %>';
+var gender = '<%= @gender %>';
+var message = '<%= @message %>';
+$('#name').val(name);
+//$("#gender").attr('checked', true);
+//$('country').val(country).attr('selected',true);
+$('#'+gender).prop("checked",true);
+$('#country').val(country).attr('selected',true);
+// $('#gender').val(country).attr('radio',true);
+//$('#gender').find(':radio[name=gender][value="1"]').prop('checked', true);
+//$('country').val(country);
+$('#phone').val(phone);
+//$('gender').val(gender);
+$('#message').val(message);
+
+console.log(name);
+console.log(country);
+console.log(phone);
+console.log(gender);
+console.log(message);
