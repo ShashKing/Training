@@ -1,0 +1,43 @@
+<h1>Library Management System</h1>
+
+<%= form_tag search_books_path, remote: true do %>
+  <%= text_field_tag :search_str, '' %>
+  <%= submit_tag 'Send' %>
+<% end %>
+
+<div >
+  <table>
+    <thead>
+      <tr>
+        <th>Name <%= link_to 'asc', sorting_books_path(sort_type: 'name', sort_order: 'asc'), remote: true %> | <%= link_to 'desc', sorting_books_path(sort_type: 'name', sort_order: 'desc'), remote: true %></th>
+        <th>Price <%= link_to 'asc', sorting_books_path(sort_type: 'price', sort_order: 'asc'), remote: true %> | <%= link_to 'desc', sorting_books_path(sort_type: 'price', sort_order: 'desc'), remote: true %></th>
+        <th>Author <%= link_to 'asc', sorting_books_path(sort_type: 'author', sort_order: 'asc'), remote: true %> | <%= link_to 'desc', sorting_books_path(sort_type: 'author', sort_order: 'desc'), remote: true %></th>
+        <th colspan=3>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="books-data">
+      <%= render partial: 'books' %>
+    </tbody>
+  </table>
+
+  <div id="pagination-links">
+    <%= render partial: 'pagination' %>
+  </div>
+  
+</div>
+
+<%= link_to 'Books', new_book_path %>
+
+<script>
+  $("#search_str").change(function(){
+    val = $(this).val();
+    $.ajax({
+      method: 'POST',
+      url: "/books/search?search_str="+val,
+      cache: false,
+      success: function(html){
+        //$("#results").append(html);
+      }
+    });
+  })
+</script>
