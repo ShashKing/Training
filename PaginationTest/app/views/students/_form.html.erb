@@ -1,0 +1,19 @@
+<%= form_with scope: :student, url: params[:action] == "new" ? students_path : student_path, local: true do |form| %>
+<p>
+  <%= form.label :Name%>
+  <%= form.text_field :name %>	
+</p>
+<p>
+  <%= form.label 'Subject' %>
+  <%= form.text_field :subject %>
+</p>
+<p>
+  <%= form.label 'Roll No'%>
+  <%= form.text_field :rollno%>
+</p>
+
+<p>
+	<% title = (params[:action] == "new" ? "Save" : "Update") %>
+	<%= form.submit title = title %>
+</p>
+<% end %>
