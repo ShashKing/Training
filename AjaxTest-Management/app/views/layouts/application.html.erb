@@ -7,9 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" media="all" href="http://supplierportal.casesbysource.com/assets/application-37f1f9b5539959d936c60ce395194a801a27317641ae237bb7694915a57531d2.css" data-turbolinks-track="reload" />
+    <script src="http://supplierportal.casesbysource.com/assets/application-a7b515ab8e488145087c7edaadc2c772f07fadb856f549b934fa1010ecaab1b7.js" data-turbolinks-track="reload"></script>
+    <div class="form-overlay full-page-preloader hidden"><img src="/assets/loading2.gif" alt="loading"></div>
   </head>
 
   <body>
+     <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

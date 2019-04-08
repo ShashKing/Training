@@ -5,7 +5,8 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     params[:page] ||=1
-    @books = Book.paginate(page: params[:page], per_page: 6)
+    @books = Book.all.paginate(page: params[:page], per_page: 10)
+
   end
 
   # GET /books/1
@@ -62,11 +63,7 @@ class BooksController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
-    end
+  
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
@@ -91,4 +88,9 @@ class BooksController < ApplicationController
       @books = Book.paginate(page: params[:page], per_page: 2)
     end
   end
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_book
+      @book = Book.find(params[:id])
+    end
 end
