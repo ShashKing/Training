@@ -77,4 +77,64 @@ $.ajax({ data: {"name" : "John Smith"} });
             alert(state);
         });
 </script> -->
+<%= form_tag search_path, remote: true do %>
+  <%= text_field_tag :search_str, '' %>
+  <%= submit_tag 'Search' %>
+<% end %>
+<table>
+  <thead>
+  <tr>
+     <th >Name <span class="sort" id= "name_asc"> asc </span>|<span class="sort" id= "name_desc"> desc </span> 
+     </th>
+        <th >User Name <span class="sort" id= "username_asc"> asc </span>|<span class="sort" id= "username_desc"> desc </span>
+        </th>
+       
+    <th>
+      Email
+    </th>
+    <th>
+      City
+    </th>
+    <th>
+      Street
+    </th>
+    <th>
+      Suite
+    </th>
+    <th>
+      Zip Code
+    </th>
+    <th>
+      Longitude
+    </th>
+    <th>
+       Latitude
+    </th>
+    <th>
+      Phone
+    </th>
+    <th>
+      Company Name
+    </th>
+    <th>
+      Website
+    </th>
+  </tr>
+  </thead>
+  <tbody id="users-data">
+      <%= render partial: 'users' %>
+    </tbody>
+</table>
+<%#= will_paginate @res %>
 
+
+<script>
+  $("#search_str").change(function(){
+    val = $(this).val();
+    $.ajax({
+      method: 'POST',
+      url: "/search?search_str="+val,
+      cache: false
+    });
+  })
+</script>

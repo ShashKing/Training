@@ -1,0 +1,40 @@
+<% @res.each do|user| %>
+  <tr>
+    <td>
+      <%= user['name'] %><br><br>
+    </td>
+    <td>
+      <%= user['username'] %><br><br>
+    </td>
+    <td>
+      <%= user['email'] %><br><br>
+    </td>
+    <td>
+      <%= user['address']['city'] %><br><br>
+    </td>
+    <td>
+      <%= user['address']['street'] %><br><br>
+    </td>
+    <td>
+      <%= user['address']['suite'] %><br><br>
+    </td>
+    <td>
+      <%= user['address']['zipcode'] %><br><br>
+    </td>
+    <td>
+      <%= user['address']['geo']['lng'] %><br><br>
+    </td>
+    <td>
+      <%= user['address']['geo']['lat'] %><br><br>
+    </td>
+    <td>
+      <%= user['phone'] %><br><br>
+    </td>
+    <td>
+      <%= user['company']['name'] %><br><br>
+    </td>
+    <td>
+      <%= "www."+user['website'] %><br><br>
+    </td>
+    <% end %>
+  </tr>
