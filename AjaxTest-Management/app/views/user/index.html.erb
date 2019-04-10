@@ -126,7 +126,9 @@ $.ajax({ data: {"name" : "John Smith"} });
     </tbody>
 </table>
 <%#= will_paginate @res %>
-
+<!-- <div id="pagination-links">
+    <%#= render partial: 'pagination' %>
+</div> -->
 
 <script>
   $("#search_str").change(function(){
@@ -136,5 +138,5 @@ $.ajax({ data: {"name" : "John Smith"} });
       url: "/search?search_str="+val,
       cache: false
     });
-  })
+  });
 </script>
