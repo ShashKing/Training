@@ -1,0 +1,23 @@
+<%= form_with url: new_user_path, id:"form2" do |form| %>
+  <%= form.label :phone_number %>
+  <%= form.text_field :ph_number %><br><br>
+  <%= form.label :city %>
+  <%= form.text_field :city %><br><br>
+  <%= form.label :state %>
+  <%= form.text_field :state %><br><br>
+  <button><%=link_to "Next", "/salpin", id:"btn2",remote:true%></button>
+<% end %>
+<script>
+	$("#btn2").click(function() {
+		alert(email)
+		ph_number = $("#ph_number").val();
+		city = $("#city").val();
+		state = $("#state").val();
+    $.ajax({
+     method: 'get',
+     url: "/address?ph_number="+ph_number+"&city="+city+"&state="+state,
+     cache: false,
+    });
+    }
+    );
+</script>

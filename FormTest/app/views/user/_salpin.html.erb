@@ -1,0 +1,22 @@
+<%= form_with url: new_user_path do |form| %>
+  <%= form.label :salary %>
+  <%= form.text_field :salary %><br><br>
+  <%= form.label :pincode %>
+  <%= form.text_field :pincode %><br><br>
+  <button><%=link_to "Submit", "/", id:"btn3" %></button>
+<% end %>
+<script>
+	$("#btn3").click(function() {
+		email
+		salary = $("#salary").val();
+		pincode = $("#pincode").val();
+		
+    $.ajax({
+     method: 'post',
+     url: "/salpin?salary="+salary+"&pincode="+pincode+"&email="+email+"&first_name="+first_name+"&last_name="+last_name+"&ph_number="+ph_number+"&city="+city+"&state="+state,
+     cache: false,
+    });
+    }
+    );
+</script>
+</script>
