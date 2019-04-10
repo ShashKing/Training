@@ -1,13 +1,17 @@
-<%= form_with url: new_user_path, id:"form2" do |form| %>
+<%= form_with url: new_user_path,html: {multipart: true}, id:"form2" do |form| %>
   <%= form.label :email %>
   <%= form.text_field :email, id:"email" %><br><br>
   <%= form.label :first_name %>
   <%= form.text_field :first_name, id:"first_name" %><br><br>
   <%= form.label :last_name %>
   <%= form.text_field :last_name, id:"last_name" %><br><br>
-  
+  <%= form.file_field :avatar%>
   <button><%=link_to "Next", "/address", remote:true, id:"btn1"%></button>
 <% end %>
+<div id="pic">
+	<button><%= link_to "Upload Pic","/show" ,remote:true %></button><br><br>
+	<button><%= link_to "Update Pic","/show" ,remote:true %></button>
+</div>
 <script>
 	$("#btn1").click(function() {
 		email = $("#email").val();
@@ -15,7 +19,7 @@
 		last_name = $("#last_name").val();
     $.ajax({
      method: 'get',
-     url: "/address?email="+email+"&first_name="+first_name+"&last_name="+last_name,
+     url: "/address?email="+email+"&first_name="+first_name+"&last_name="+last_name, "&avatar="+avatar,
      cache: false,
     });
     }

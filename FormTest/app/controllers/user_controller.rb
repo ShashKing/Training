@@ -1,11 +1,12 @@
 class UserController < ApplicationController
+  
   def index
   	@users = User.all 
   end
 
   def new
   	@user = User.new
-  
+    #@user.avatar = params[:file]
   end
 
   def show
@@ -25,6 +26,6 @@ class UserController < ApplicationController
   	render :index
   end
   def user_params
-  	params.permit(:first_name, :last_name, :email, :ph_number, :city, :state, :pincode, :salary)
+  	params.permit(:first_name, :last_name, :email, :ph_number, :city, :state, :pincode, :salary, :avatar)
   end
 end
