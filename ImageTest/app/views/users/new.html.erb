@@ -1,0 +1,10 @@
+
+
+<div id="show">
+	<%= form_for(@user,html: {multipart: true},remote:true) do|f|%>
+	<%= f.file_field :avatar, id:"image"%>
+	<%= f.submit "Upload"%>
+<%end%>
+</div>
+
+
