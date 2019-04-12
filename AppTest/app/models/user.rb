@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers =>[:facebook , :google_oauth2, :github, :twitter]
-  
+  require 'carrierwave/orm/activerecord'
   def self.from_omniauth(auth)
     # debugger
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
