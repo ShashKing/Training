@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sigh In</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application',  media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p>user layout</p>
+    <%= link_to 'Home', root_path %> &nbsp &nbsp
+    <% if user_signed_in? %>
+      <%= link_to "#{current_user.email}", edit_user_registration_path %> <br>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> <br>
+
+    <% else %>
+      <%= link_to 'Sign Up', new_user_registration_path %> <br>
+      <%= link_to 'Sign In' , new_user_session_path %> <br>
+    <% end %>
+
+
+
+    <%= yield %>
+  </body>
+</html>

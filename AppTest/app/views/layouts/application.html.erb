@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AppTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <center>   
+   
+        
+        <form class="form-inline my-2 my-lg-0">
+          <% if user_signed_in? %>
+            <%= link_to "#{current_user.email}", edit_user_registration_path, class: "btn btn-outline-success my-2 my-sm-0" %> <br>
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-outline-success my-2 my-sm-0" %> <br>
+          <% else %>
+            <button><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path,class: "btn btn-outline-success my-2 my-sm-0" %></button>
+            <button><%= link_to "Sign in with Github", user_github_omniauth_authorize_path,class: "btn btn-outline-success my-2 my-sm-0" %></button>
+            <button><%= link_to "Sign in with google", user_google_oauth2_omniauth_authorize_path,class: "btn btn-outline-success my-2 my-sm-0" %></button>
+            <button><%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path,class: "btn btn-outline-success my-2 my-sm-0" %></button>
+            <button><%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-outline-success my-2 my-sm-0"  %></button>
+            <button><%= link_to 'Sign In' , new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0" %> <br></button>
+          <% end %>
+        </form>
+      </center>  
+   
+    
+      <%= yield %>
+    </div>
+  </body>
+</html>
