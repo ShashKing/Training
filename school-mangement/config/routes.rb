@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   root 'home#index'
-  devise_for :users, controllers: {sessions: 'sessions'}
+  devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations'}
   get '/principal/index' => "principal#index"
   get '/teachers/index' => "teachers#index"
   get '/student/index' => "student#index"
