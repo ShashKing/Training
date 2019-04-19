@@ -1,1 +1,19 @@
-<%= link_to "Login",new_user_session_url %><br>
+<% if !user_signed_in?%>
+      <br>
+      <center>
+        <%= link_to "Login",new_user_session_url %><br>
+      </center>
+    <% end %>
+    <% if user_signed_in?%>
+    <% if current_user.role.name == "Principal"%>
+    <%= link_to "Go to Dashboard Page", "/principal/index" %>
+    <% end %>
+
+    <% if current_user.role.name == "Student"%>
+    <%= link_to "Go to Dashboard Page", "/student/index" %>
+    <% end %>
+
+    <% if current_user.role.name == "Teacher"%>
+    <%= link_to "Go to Dashboard Page", "/teachers/index" %>
+    <% end %>
+    <% end %>

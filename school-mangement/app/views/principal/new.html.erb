@@ -1,0 +1,17 @@
+<%= form_with model: @user, url: "create_user" ,:html => {:id => "sign_up"} do|f| %>
+<%= f.label :email%>
+<%= f.text_field :email %><br>
+<div>
+  <%= f.select :role_id, options_from_collection_for_select(Role.where.not(name: "Principal"), :id, :name), {prompt: 'Select Role', required: true} %>
+  <br><br>
+ </div>
+ <div>
+  <%= f.select :gender_id, options_from_collection_for_select(Gender.all, :id, :name), {prompt: 'Select Gender'} %>
+  <br><br>
+</div>
+<%= f.label :password%>
+<%= f.password_field :password %><br>
+<%= f.label :confirm_password%>
+<%= f.password_field :confirm_password%><br>
+<%= f.submit "Submit"%>
+<% end %>
