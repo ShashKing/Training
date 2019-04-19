@@ -7,6 +7,8 @@
         <tr>
          
           <th>Email</th>
+          <th>Marks</th>
+          <th>Delete Record</th>
           <th>Role</th>
         </tr>
       </thead>
@@ -14,7 +16,9 @@
         <% @users.each do |user| %>
           <tr>
             <td><%= link_to user.email,"/#{user.id}" %></td><br>
-            <td> <%= user.role.name if present? %><br></td>
+            <td><%= link_to "Marks", "/#{user.id}/subjects/index"%><br></td>
+            <td><%= link_to "Delete", "#"%></td>
+            <td><%= user.role.name if present? %></td>
           </tr>
         <% end %>
       </tbody>

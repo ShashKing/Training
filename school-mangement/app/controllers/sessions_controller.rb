@@ -13,7 +13,7 @@ class SessionsController < Devise::SessionsController
           redirect_to "/teachers/index"
         elsif user.role.name == "Student"
           sign_in(user)
-          flash[:success] = "Welcome Teacher"
+          flash[:success] = "Welcome Student"
           redirect_to "/student/index"
         else
  					flash[:danger] = "You are not authorised to access this URL."

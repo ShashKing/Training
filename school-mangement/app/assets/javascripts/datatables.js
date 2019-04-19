@@ -58,5 +58,10 @@ $(document).on('turbolinks:before-cache', function() {
   }
 });
 $(document).ready(function() {
-  $("#dttb").dataTable();
+  $("#dttb").dataTable({
+    "order": [[ 0, "asc" ]],
+    "columnDefs": [
+      { "orderable": false, "targets": [1,2,3] }
+    ]
+  });
 });
