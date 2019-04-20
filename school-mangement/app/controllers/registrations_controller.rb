@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   
   def create 
+    debugger
 		@user = User.new(user_params)
 		if @user.save
       redirect_to '/'
@@ -11,6 +12,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
 	end
 def user_params
-		params.require(:user).permit(:email, :password, :role_id, :gender_id)
+		params.require(:user).permit(:email, :password, :role_id, :gender_id, :first_name, :last_name, :st_class, :roll_no, :phone_number)
 	end
 end 

@@ -9,6 +9,16 @@
   <%= f.select :gender_id, options_from_collection_for_select(Gender.all, :id, :name), {prompt: 'Select Gender', required: true} %>
   <br><br>
 </div>
+<%= f.label :first_name%>
+<%= f.text_field :first_name %><br>
+<%= f.label :last_name%>
+<%= f.text_field :last_name %><br>
+<%= f.label :phone_number%>
+<%= f.text_field :phone_number %><br>
+<%= f.label :class%>
+<%= f.text_field :st_class %><br>
+<%= f.label :roll_no%>
+<%= f.text_field :roll_no %><br>
 <%= f.label :password%>
 <%= f.password_field :password %><br>
 <%= f.label :confirm_password%>

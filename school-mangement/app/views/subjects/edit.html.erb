@@ -1,2 +1,25 @@
-<h1>Subjects#edit</h1>
-<p>Find me in app/views/subjects/edit.html.erb</p>
+<%= form_with model: @subject, url: "" ,:html => {:id => "update_marks"} do|f| %>
+
+<%= f.label :hindi%>
+<%= f.text_field :hindi %><br>
+<%= f.label :english%>
+<%= f.text_field :english %><br>
+<%= f.label :maths%>
+<%= f.text_field :maths %><br>
+<%= f.label :science%>
+<%= f.text_field :science %><br>
+<%= f.label :sst%>
+<%= f.text_field :sst %><br>
+<%= f.label :computer%>
+<%= f.text_field :computer %><br>
+<%= f.label :gk%>
+<%= f.text_field :gk %><br>
+<%= f.label :pt%>
+<%= f.text_field :pt %><br>
+<%= f.label :drawing%>
+<%= f.text_field :drawing %><br>
+<%= f.label :sanskrit%>
+<%= f.text_field :sanskrit %><br>
+
+<%= f.submit "Submit"%>
+<% end %>

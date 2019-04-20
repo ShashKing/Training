@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Role.create(name: 'Principal')
+Role.create(name: 'Student')
+Role.create(name: 'Teacher')
+Examtype.create(name: 'Sessional')
+Examtype.create(name: 'First Internal')
+Examtype.create(name: 'Second Internal')

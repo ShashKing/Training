@@ -5,20 +5,30 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    debugger
   	@subject = Subject.new(subject_params)
     @subject.user_id = User.find(params[:id]).id
     if @subject.save(subject_params)
-  	  render :index
+  	  redirect_to "/subjects/show"
     else
       render :new
     end
   end
 
   def show
+ 
+    @subjects = Subject.where(user_id: params[:id])
   end
 
   def edit
+    @subject = Subject.find_by(params[:examtype_id])
+    @user = User.find(params[:id])
+  end
+
+  def update
+
+    @subject = Subject.find_by(params[:examtype_id])
+    @subject.update(subject_params)
+    redirect_to "/subjects/show"
   end
 
   def index
@@ -28,5 +38,11 @@ class SubjectsController < ApplicationController
 
   def subject_params
   	params.permit(:hindi, :english, :gk, :maths, :drawing, :science, :sst, :pt, :sanskrit, :computer, :examtype_id,:user_id)
+  end
+  def destroy
+    @subject = Subject.find_by(params[:examtype_id])
+    @subject.destroy
+    redirect_to "/subjects/show"
+    
   end
 end

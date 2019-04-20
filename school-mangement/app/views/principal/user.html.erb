@@ -1,1 +1,8 @@
-<%= @user.email %>
+  <% if current_user.role.name == "Teacher" %>
+  Roll No:- <%= @user.roll_no %><br>
+  Class:-   <%= @user.st_class %><br>
+  Email:-   <%= @user.email %><br>
+  <% end %>
+  <%= link_to "Add Address", "/addresses/new/#{@user.id}"%><br>
+  <%= link_to "Show Address", "/addresses/show/#{@user.id}"%>
+  <h4>Latest Address</h4>

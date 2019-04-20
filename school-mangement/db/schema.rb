@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_19_132413) do
+ActiveRecord::Schema.define(version: 2019_04_20_121754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "country"
+    t.string "city"
+    t.string "locality"
+    t.string "street"
+    t.string "house_no"
+    t.string "zip_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "state"
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "examtypes", force: :cascade do |t|
     t.string "name"
@@ -64,14 +78,16 @@ ActiveRecord::Schema.define(version: 2019_04_19_132413) do
     t.bigint "gender_id"
     t.string "first_name"
     t.string "last_name"
-    t.integer "class"
+    t.integer "st_class"
     t.bigint "roll_no"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["gender_id"], name: "index_users_on_gender_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "subjects", "examtypes"
   add_foreign_key "subjects", "users"
   add_foreign_key "users", "genders"

@@ -7,6 +7,14 @@ class TeachersController < ApplicationController
   	@user = User.new
   end
   def user
+
   	@user = User.find(params[:id])
+  end
+
+  def destroy
+   
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to "/teachers/index"
   end
 end

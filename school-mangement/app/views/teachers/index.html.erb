@@ -5,8 +5,10 @@
     <table id="dttb" class="table table-hover">
       <thead>
         <tr>
-         
-          <th>Email</th>
+          
+          <th>Name</th>
+          <th>Class</th>
+          <th>Roll No</th>
           <th>Marks</th>
           <th>Delete Record</th>
           <th>Role</th>
@@ -15,10 +17,12 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= link_to user.email,"/#{user.id}" %></td><br>
-            <td><%= link_to "Marks", "/#{user.id}/subjects/index"%><br></td>
-            <td><%= link_to "Delete", "#"%></td>
-            <td><%= user.role.name if present? %></td>
+            <td><%= link_to user.first_name,"/#{user.id}" %> <%= link_to user.last_name,"/#{user.id}" %></td><br>
+            <td><%=  user.st_class %></td><br>
+            <td><%=  user.roll_no %></td><br>
+            <td><%= link_to "Marks", "/#{user.id}/index"%><br></td>
+            <td><td><br><%= link_to 'Delete',"/#{user.id}/index", method: :delete, data: {confirm: 'Are You Sure?'} %><br><br></td></td>
+            <td><%= user.role.name %></td>
           </tr>
         <% end %>
       </tbody>
