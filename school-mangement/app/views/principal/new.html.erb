@@ -2,13 +2,19 @@
 <%= f.label :email%>
 <%= f.text_field :email %><br>
 <div>
-  <%= f.select :role_id, options_from_collection_for_select(Role.where.not(name: "Principal"), :id, :name), {prompt: 'Select Role', required: true} %>
+  <%= f.select :role_id, options_from_collection_for_select(Role.where(name: "Teacher"), :id, :name), {prompt: 'Select Role', required: true} %>
   <br><br>
  </div>
  <div>
-  <%= f.select :gender_id, options_from_collection_for_select(Gender.all, :id, :name), {prompt: 'Select Gender'} %>
+  <%= f.select :gender_id, options_from_collection_for_select(Gender.all, :id, :name), {prompt: 'Select Gender', required: true} %>
   <br><br>
 </div>
+<%= f.label :first_name%>
+<%= f.text_field :first_name %><br>
+<%= f.label :last_name%>
+<%= f.text_field :last_name %><br>
+<%= f.label :phone_number%>
+<%= f.text_field :phone_number %><br>
 <%= f.label :password%>
 <%= f.password_field :password %><br>
 <%= f.label :confirm_password%>

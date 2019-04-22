@@ -7,6 +7,7 @@
       <tr>
         <th>Email</th>
         <th>Role</th>
+        <th>Delete Record</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,7 @@
         <tr>
           <td><%= link_to user.email,"/#{user.id}" %></td><br>
           <td> <%= user.role.name if present? %><br></td>
+          <td><br><%= link_to 'Delete',"/#{user.id}/principal/index", method: :delete, data: {confirm: 'Are You Sure?'} %><br><br></td>
         </tr>
       <% end %>
     </tbody>

@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   get "/addresses/new/:id" => "addresses#new"
   post "/addresses/new/:id" => "addresses#create"
   get "/addresses/show/:id" => "addresses#show"
+  delete "/:id/principal/index" => "principal#destroy"
+
   devise_scope :user do
     post '/principal/create_user' => "registrations#create"
      post '/teachers/create_user' => "registrations#create"

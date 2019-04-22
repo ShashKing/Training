@@ -57,19 +57,20 @@ $(document).on('turbolinks:before-cache', function() {
     return dataTable = null;
   }
 });
-$(document).ready(function() {
-  $("#dttb").dataTable({
-    "order": [[ 0, "asc" ]],
-    "columnDefs": [
-      { "orderable": false, "targets": [1,2,3,4,5] }
-    ]
-  });
-});
+
 $(document).ready(function() {
   $("#dtts").dataTable({
     "order": [[ 0, "asc" ]],
     "columnDefs": [
       { "orderable": false, "targets": [1,2,3,4,5,6,7,8,9,10,11,12] }
+    ]
+  });
+});
+$(document).ready(function() {
+  $("#dttb").dataTable({
+    "order": [[ 0, "asc" ]],
+    "columnDefs": [
+      { "orderable": false, "targets": [1,2,3,4,5] }
     ]
   });
 });
