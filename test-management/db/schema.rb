@@ -10,16 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_13_042024) do
+ActiveRecord::Schema.define(version: 2019_05_13_054524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
+  create_table "departments", force: :cascade do |t|
     t.string "name"
-    t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "departments_users", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "department_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "phone_number"
+    t.bigint "department_id"
+    t.boolean "terms_of_service", default: false
+    t.index ["department_id"], name: "index_users_on_department_id"
+    t.index ["phone_number"], name: "index_users_on_phone_number"
+  end
+
+  add_foreign_key "users", "departments"
 end
