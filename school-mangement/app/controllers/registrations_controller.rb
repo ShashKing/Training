@@ -1,7 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   
   def create 
-    debugger
 		@user = User.new(user_params)
 		if @user.save
       redirect_to '/'
@@ -11,7 +10,8 @@ class RegistrationsController < Devise::RegistrationsController
     	flash[:danger] = "Try Again for Sign up"
     end
 	end
-def user_params
+  
+  def user_params
 		params.require(:user).permit(:email, :password, :role_id, :gender_id, :first_name, :last_name, :st_class, :roll_no, :phone_number)
 	end
 end 

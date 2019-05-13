@@ -1,3 +1,6 @@
+<body id="home">
+    <div>
+      <img src="/assets/home_page.jpg" style="height: 500px" width="100%">
 <% if !user_signed_in?%>
       <br>
       <center>
@@ -16,4 +19,7 @@
     <% if current_user.role.name == "Teacher"%>
     <%= link_to "Go to Dashboard Page", "/teachers/index" %>
     <% end %>
-    <% end %>
+    <% end %> 
+    </div>
+</body>
+

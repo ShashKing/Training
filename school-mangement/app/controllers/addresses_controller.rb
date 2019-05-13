@@ -15,6 +15,11 @@ class AddressesController < ApplicationController
 
   def edit
   end
+  def destroy
+    @address = Address.find(params[:id])
+    @address.destroy
+    redirect_to "/address/show"
+  end
 
   def address_params
   	params.permit(:country, :state, :city, :locality, :zip_code, :street, :house_no, :user_id)

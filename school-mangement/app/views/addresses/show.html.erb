@@ -5,6 +5,7 @@
       <tr>
       	<th>Country</th>
         <th>State</th>
+        <th>City</th>
         <th>Locality</th>
         <th>Street No</th>
         <th>House No</th>
@@ -21,6 +22,7 @@
         <tr>
           <td><%= address.country if address.country.present? %></td><br>
           <td><%= address.state if address.state.present? %></td><br>
+          <td><%= address.city if address.city.present? %></td><br>
           <td><%= address.locality if address.locality.present? %><br></td>
           <td><%= address.street if address.street.present? %><br></td>
           <td><%= address.house_no if address.house_no.present? %><br></td>
@@ -28,7 +30,7 @@
           <td><br></td>
           <%if current_user.role.name != "Student"%>
           <td><%#= link_to "Update Marks", "/#{subject.user_id}/subject/edit"%><br></td>
-          <td><br><%#= link_to 'Delete this record',@subject, method: :delete, data: {confirm: 'Are You Sure?'} %><br><br></td>
+          <td><br><%= link_to 'Delete this record',@address, method: :delete, data: {confirm: 'Are You Sure?'} %><br><br></td>
           <% end %>
         </tr>
       <% end %>

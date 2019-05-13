@@ -1,0 +1,22 @@
+<% flash.each do |key, value| %>
+  <% alert_class = case key
+                   when "notice" then "success"
+                   when "alert" then "danger"
+                   else key
+                   end %>
+  <%= content_tag :div, class: "alert alert-#{alert_class} w-100 position-absolute mt-1" do %>
+    <% unless alert_class == "timedout" %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= value %>
+  <% end %>
+  <% end %>
+<% end %>
+ <% flash.clear %>
+ <script>
+  setTimeout(function(){
+    $('.alert').fadeOut();
+  }, 2000);
+ </script>
+ <script>
+   $('.alert').css('left','0');
+ </script>

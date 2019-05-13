@@ -26,12 +26,14 @@ Rails.application.routes.draw do
   get "/show" => "subjects#show"
   get "/:id/show" => "subjects#show"
   delete "/:id/index" => "teachers#destroy"
+  delete ":id/:id/show" => "subjects#destroy"
 
   get "/addresses/new/:id" => "addresses#new"
   post "/addresses/new/:id" => "addresses#create"
   get "/addresses/show/:id" => "addresses#show"
   delete "/:id/principal/index" => "principal#destroy"
 
+  delete "/addresses/show/:id" => "addresses#destroy"
   devise_scope :user do
     post '/principal/create_user' => "registrations#create"
      post '/teachers/create_user' => "registrations#create"
