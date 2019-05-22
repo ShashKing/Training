@@ -1,8 +1,53 @@
-/*#home {
- background-image: url("/assets/main_building.jpg");
- background-color: #cccccc;
- background-repeat: no-repeat;
- margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}*/
+body
+{
+	background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url("https://i.pinimg.com/originals/29/47/5a/29475a74a7b11eea153170eec441b295.jpg");
+    background-size: cover;
+}
+.form-control
+{
+	background: transparent!important;
+		color: #fff!important;
+}
+.btn-success
+{
+	background-color: green!important;
+}
+label
+{
+	color: green;
+}
+h2
+{
+	font-family: calibri;
+	font-weight: bolder;color: green;
+}
+.login-btn
+{
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	position: absolute;color: #fff;	 
+
+}
+::-webkit-input-placeholder
+{
+	color: #fff;
+}
+.top-right
+{
+	position: absolute;
+	top: 30px;right:30px;z-index: 3; 
+}
+a
+{
+	color: green;
+}
+a:hover,a:focus
+{
+	color: #fff;
+}
+option
+{
+	background-color:black;
+	color: green;
+}

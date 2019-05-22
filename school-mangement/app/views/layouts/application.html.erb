@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>SchoolMangement</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,13 +10,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
-  <body style="background-color: lightblue">
+  <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <% if user_signed_in?%>
       <br>
       <center>
-        <button class="button"><%= link_to('Logout',destroy_user_session_path, :method => :delete)%> </button>
+        <button class="btn btn-warning top-right"><%= link_to('Logout',destroy_user_session_path, :method => :delete)%> </button>
       </center>
     <% end %>
     

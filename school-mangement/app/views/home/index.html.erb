@@ -1,23 +1,25 @@
-<body id="home">
+<body style="background: url(/assets/home_page.jpg);height:100vh;background-size: cover;background-position: center;background-repeat: no-repeat no-repeat;">
     <div>
-      <img src="/assets/home_page.jpg" style="height: 500px" width="100%">
 <% if !user_signed_in?%>
-      <br>
-      <center>
-        <%= link_to "Login",new_user_session_url %><br>
-      </center>
+    
+        <div class="login-btn">
+          <%= link_to "Login",new_user_session_url , class: "btn btn-success btn-lg"%>
+        </div>
+        
+   
+  
     <% end %>
     <% if user_signed_in?%>
     <% if current_user.role.name == "Principal"%>
-    <%= link_to "Go to Dashboard Page", "/principal/index" %>
+    <%= link_to "Go to Dashboard Page", "/principal/index" ,class: "btn btn-info"%>
     <% end %>
 
     <% if current_user.role.name == "Student"%>
-    <%= link_to "Go to Dashboard Page", "/student/index" %>
+    <%= link_to "Go to Dashboard Page", "/student/index"  ,class: "btn btn-info"%>
     <% end %>
 
     <% if current_user.role.name == "Teacher"%>
-    <%= link_to "Go to Dashboard Page", "/teachers/index" %>
+    <%= link_to "Go to Dashboard Page", "/teachers/index"  ,class: "btn btn-info"%>
     <% end %>
     <% end %> 
     </div>
