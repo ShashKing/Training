@@ -82,3 +82,11 @@ $(document).ready(function() {
     ]
   });
 });
+$(document).ready(function() {
+  $("#dtta").dataTable({
+    "order": [[ 0, "asc" ]],
+    "columnDefs": [
+      { "orderable": false, "targets": [1,2,3,4,5,6] }
+    ]
+  });
+});

@@ -1,4 +1,4 @@
-<%= link_to "Home Page", "/home/index" %><br>
-<h1>Welcome</h1><h2> <%= current_user.first_name %> <%= current_user.first_name %></h2>
-<h2><%= link_to "Your result","/#{current_user.id}/show" %></h2>
+<%= link_to "Home Page", "/home/index"  ,class: "btn btn-info"%><br>
+<h1>Welcome</h1><h2> <%=link_to "#{current_user.first_name} #{current_user.last_name}", "principal/user/#{current_user.id}" %> </h2>
+<h2><%= link_to "Your result","/#{current_user.id}/show"  ,class: "btn btn-info"%></h2>
 	

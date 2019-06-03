@@ -6,7 +6,8 @@ class AddressesController < ApplicationController
   	@address = Address.new(address_params)
     @address.user_id = User.find(params[:id]).id
     @address.save(address_params)
-    redirect_to "principal/user"
+    redirect_to "/addresses/show/#{@address.user_id}"
+    binding.pry
   end
 
   def show
@@ -16,7 +17,7 @@ class AddressesController < ApplicationController
   def edit
   end
   def destroy
-    @address = Address.find(params[:id])
+    @address = Address.find(id: params[:id])
     @address.destroy
     redirect_to "/address/show"
   end

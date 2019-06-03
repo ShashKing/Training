@@ -1,13 +1,10 @@
-<body style="background: url(/assets/home_page.jpg);height:100vh;background-size: cover;background-position: center;background-repeat: no-repeat no-repeat;">
+<body style="background: url(/assets/vasily-koloda-620886-unsplash.jpg);height:100vh;background-size: cover;background-position: center;background-repeat: no-repeat no-repeat;">
     <div>
 <% if !user_signed_in?%>
     
         <div class="login-btn">
           <%= link_to "Login",new_user_session_url , class: "btn btn-success btn-lg"%>
         </div>
-        
-   
-  
     <% end %>
     <% if user_signed_in?%>
     <% if current_user.role.name == "Principal"%>

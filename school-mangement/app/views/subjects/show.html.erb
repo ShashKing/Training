@@ -1,6 +1,4 @@
-
-
-<table id="dtts" class="table table-hover">
+<table id="dtts" class="table table-dark table-hover">
     <thead>
       <tr>
       	<th>Exam Type</th>
@@ -17,28 +15,26 @@
         <th>Total</th>
         <%if current_user.role.name != "Student"%>
         <th>Update</th>
-        <th>Delete</th>
         <% end %>
       </tr>
     </thead>
     <tbody>
       <% @subjects.each do |subject| %>
         <tr>
-          <td><%= subject.examtype.name if subject.examtype.present? %></td><br>
-          <td><%= subject.hindi if subject.hindi.present? %></td><br>
-          <td><%= subject.english if subject.english.present? %><br></td>
-          <td><%= subject.maths if subject.maths.present? %><br></td>
-          <td><%= subject.science if subject.science.present? %><br></td>
-          <td><%= subject.gk if subject.gk.present? %><br></td>
-          <td><%= subject.sst if subject.sst.present? %><br></td>
-          <td><%= subject.drawing if subject.drawing.present? %><br></td>
-          <td><%= subject.computer if subject.computer.present? %><br></td>
-          <td><%= subject.pt if subject.pt.present? %><br></td>
-          <td><%= subject.sanskrit if subject.sanskrit.present? %><br></td>          
-          <td><br></td>
+          <td><%= subject.examtype.name if subject.examtype.present? %></td>
+          <td><%= subject.hindi if subject.hindi.present? %></td>
+          <td><%= subject.english if subject.english.present? %></td>
+          <td><%= subject.maths if subject.maths.present? %></td>
+          <td><%= subject.science if subject.science.present? %></td>
+          <td><%= subject.gk if subject.gk.present? %></td>
+          <td><%= subject.sst if subject.sst.present? %></td>
+          <td><%= subject.drawing if subject.drawing.present? %></td>
+          <td><%= subject.computer if subject.computer.present? %></td>
+          <td><%= subject.pt if subject.pt.present? %></td>
+          <td><%= subject.sanskrit if subject.sanskrit.present? %></td>    
+          <td><%=  (subject.hindi) +(subject.english) %></td>      
           <%if current_user.role.name != "Student"%>
-          <td><%= link_to "Update Marks", "/#{subject.user_id}/subject/edit"%><br></td>
-          <td><br><%= link_to 'Delete this record',@subject, method: :delete, data: {confirm: 'Are You Sure?'} %><br><br></td>
+          <td><%= link_to "Update Marks", "/#{subject.user_id}/subject/edit"%></td>
           <% end %>
         </tr>
       <% end %>

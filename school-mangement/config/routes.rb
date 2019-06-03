@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get 'principal/new' => "principal#new"
   get 'teachers/new' => "teachers#new"
   get '/:id' => "principal#user"
+  get '/student/principal/user/:id' => "principal#user"
   get '/home/index' => "home#index"
+  get 'home/contact_us'
 
   get "/:id/index" => "subjects#index"
   get "/:id/:id/new" => "subjects#new"

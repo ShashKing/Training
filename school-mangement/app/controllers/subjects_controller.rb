@@ -1,14 +1,14 @@
 class SubjectsController < ApplicationController
-  def new
-  	
 
+
+  def new
   end
 
   def create
   	@subject = Subject.new(subject_params)
     @subject.user_id = User.find(params[:id]).id
     if @subject.save(subject_params)
-  	  redirect_to "/subjects/show"
+  	  redirect_to "/#{@subject.user_id}/#{@subject.user_id}/show"
     else
       render :new
     end

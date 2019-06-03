@@ -1,6 +1,6 @@
 
 
-<table id="dtta" class="table table-hover">
+<table class="table table-dark table-hover" id="dtta" >
     <thead>
       <tr>
       	<th>Country</th>
@@ -10,28 +10,18 @@
         <th>Street No</th>
         <th>House No</th>
         <th>Zip Code</th>
-        
-        <%if current_user.role.name != "Student"%>
-        <th>Update</th>
-        <th>Delete</th>
-        <% end %>
       </tr>
     </thead>
     <tbody>
       <% @addresses.each do |address| %>
         <tr>
-          <td><%= address.country if address.country.present? %></td><br>
-          <td><%= address.state if address.state.present? %></td><br>
-          <td><%= address.city if address.city.present? %></td><br>
-          <td><%= address.locality if address.locality.present? %><br></td>
-          <td><%= address.street if address.street.present? %><br></td>
-          <td><%= address.house_no if address.house_no.present? %><br></td>
-          <td><%= address.zip_code if address.zip_code.present? %><br></td>         
-          <td><br></td>
-          <%if current_user.role.name != "Student"%>
-          <td><%#= link_to "Update Marks", "/#{subject.user_id}/subject/edit"%><br></td>
-          <td><br><%= link_to 'Delete this record',@address, method: :delete, data: {confirm: 'Are You Sure?'} %><br><br></td>
-          <% end %>
+          <td><%= address.country if address.country.present? %></td>
+          <td><%= address.state if address.state.present? %></td>
+          <td><%= address.city if address.city.present? %></td>
+          <td><%= address.locality if address.locality.present? %></td>
+          <td><%= address.street if address.street.present? %></td>
+          <td><%= address.house_no if address.house_no.present? %></td>
+          <td><%= address.zip_code if address.zip_code.present? %></td>         
         </tr>
       <% end %>
     </tbody>

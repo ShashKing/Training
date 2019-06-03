@@ -1,6 +1,6 @@
 body
 {
-	background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url("https://i.pinimg.com/originals/29/47/5a/29475a74a7b11eea153170eec441b295.jpg");
+	background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url("/assets/john-schnobrich-520023-unsplash.jpg");
     background-size: cover;
 }
 .form-control

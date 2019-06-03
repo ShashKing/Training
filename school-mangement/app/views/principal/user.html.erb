@@ -1,7 +1,46 @@
-  
-  Roll No:- <%= @user.roll_no %><br>
-  Class:-   <%= @user.st_class %><br>
-  Email:-   <%= @user.email %><br>
-  <%= link_to "Add Address", "/addresses/new/#{@user.id}"%><br>
-  <%= link_to "Show Address", "/addresses/show/#{@user.id}"%>
-  <h4>Latest Address</h4>
+<div  class="text-center text-white"> 
+<label>Name :-</label>
+<%= "#{@user.first_name} #{@user.last_name}"%><br>
+</div>
+<div  class="text-center text-white"> 
+<label>Phone Number-</label>
+<%= "#{@user.phone_number} "%><br>
+</div>
+<div  class="text-center text-white"> 
+<label>Gender-</label>
+<%= "#{@user.gender.name} "%><br>
+</div>
+<% if @user.role.name != "Teacher" %>
+<div  class="text-center text-white"> 
+<label>Roll No :-</label>
+<%= @user.roll_no %><br>
+</div>
+<div  class="text-center text-white">
+<label>Class :-</label>
+<%= @user.st_class %><br>
+</div>
+<% end %>
+<div  class="text-center text-white">
+<label>Email :-</label>
+<%= @user.email %><br>
+</div>
+<h4 class="text-center text-white"><%= link_to "Show Address", "/addresses/show/#{@user.id}", class: "btn btn-info" , local:true%></h4>
+<center><div class="btn btn-info " id="l_address">
+<h6 class="text-center text-white"><%= "Latest Address" %></h6>
+</div></center>
+<br>
+<p class="text-center text-white" style="display:none"><%= "House Number:- #{@user.addresses.last.house_no}, Street Number:- #{@user.addresses.last.street}, #{@user.addresses.last.locality}, #{@user.addresses.last.city}, #{@user.addresses.last.state}, #{@user.addresses.last.zip_code}, #{@user.addresses.last.country}" if @user.addresses.last.present? %></p>
+<% if current_user.role != "Student" %>
+<div class="text-center">
+<%= link_to "Add Address", "/addresses/new/#{@user.id}", class: "btn btn-info " %>
+</div>
+<% end %>
+<script>
+$(document).ready(function(){
+  $("#l_address").click(function(){
+    $("p").toggle();
+  });
+});
+</script>
+
+

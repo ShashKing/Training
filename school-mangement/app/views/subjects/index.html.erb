@@ -1,9 +1,8 @@
 <% if user_signed_in?%> 
-  
-  <h1><%= @user.first_name %> <%= @user.last_name %> Record</h1>
+  <h1 class= "text-white"><%= @user.first_name %> <%= @user.last_name %> Record</h1>
 
-  <h3><%= link_to "Enter Marks", "#{@user.id}/new"%></h3>
-  <h3><%= link_to "Show Marks", "#{@user.id}/show"%></h3>
+  <h3><%= link_to "Enter Marks", "#{@user.id}/new" ,class: "btn btn-info"%></h3>
+  <h3><%= link_to "Show Marks", "#{@user.id}/show" ,class: "btn btn-info"%></h3>
   
  <% end %>
   

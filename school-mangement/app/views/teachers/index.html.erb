@@ -1,8 +1,8 @@
-<%= link_to "Home Page", "/home/index" %><br>
+<%= link_to "Home Page", "/home/index", class: "btn btn-info" %>
     <% if user_signed_in?%> 
-    <%= link_to "Enter New Record", "/teachers/new"%>
-    <h1>All Record</h1>
-    <table id="dttb" class="table table-hover">
+    <%= link_to "Enter New Record", "/teachers/new" ,class: "btn btn-info"%>
+     <h1 class="text-center text-white">All Record</h1>
+    <table class="table table-dark table-hover" id="dttb" class="table table-hover">
       <thead>
         <tr>
           <th>Name</th>
@@ -16,11 +16,11 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= link_to user.first_name,"/#{user.id}" %> <%= link_to user.last_name,"/#{user.id}" %></td><br>
-            <td><%=  user.st_class %></td><br>
-            <td><%=  user.roll_no %></td><br>
-            <td><%= link_to "Marks", "/#{user.id}/index"%><br></td>
-            <td><br><%= link_to 'Delete',"/#{user.id}/index", method: :delete, data: {confirm: 'Are You Sure?'} %><br><br></td>
+            <td><%= link_to "#{user.first_name} #{user.last_name}","/#{user.id}" %> </td>
+            <td><%=  user.st_class %></td>
+            <td><%=  user.roll_no %></td>
+            <td><%= link_to "Marks", "/#{user.id}/index"%></td>
+            <td><%= link_to 'Delete',"/#{user.id}/index", method: :delete, data: {confirm: 'Are You Sure?'} %></td>
             <td><%= user.role.name %></td>
           </tr>
         <% end %>
